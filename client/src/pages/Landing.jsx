@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Logo } from "../components";
 import main from "../assets/images/main.svg";
 import Wrapper from "../assets/wrappers/LandingPage";
+
 const Landing = () => {
   return (
     <Wrapper>
-      <nav>{/* <img src={logo} alt="Blockenzyme" className="logo" /> */}</nav>
+      <nav>
+        <Logo />
+      </nav>
       <div className="container page">
         <div className="info">
           <h1>
