@@ -1,15 +1,19 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
-import main from "../assets/images/main.svg";
+import { Logo } from "../components";
 import Wrapper from "../assets/wrappers/LandingPage";
+
 const Landing = () => {
   return (
     <Wrapper>
-      <nav>{/* <img src={logo} alt="Blockenzyme" className="logo" /> */}</nav>
+      <nav>
+        <Logo />
+      </nav>
       <div className="container page">
         <div className="info">
           <h1>
-            <span>Recruitment</span> application
+            <span>Blockenzyme</span>
           </h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -24,7 +28,7 @@ const Landing = () => {
             Login/Register
           </Link>
         </div>
-        <img src={main} alt="" className="img main-img" />
+        {/* <img src={main} alt="" className="img main-img" /> */}
       </div>
     </Wrapper>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
+import styled from "styled-components";
 import { Routes, Route, Link } from "react-router-dom";
-import Landing from './pages/Landing';
+import { Landing,Error,Dashboard,Register } from './pages';
 import './App.css';
 
 function App() {
@@ -12,10 +13,10 @@ function App() {
         <Link to="/landing">Landing</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<div>Dashboard</div>} />
-        <Route path="/register" element={<div>Register</div>} />
+        <Route path="/" element={<Dashboard/>} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/landing" element={<Landing />} />
-        <Route path="*" element={<h1>Error</h1>} />
+        <Route path="*" element={<Error/>} />
       </Routes>
     </div>
   );
