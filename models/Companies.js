@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 const {Schema} = mongoose;
 
-const userSchema = new Schema({
+const companyuserSchema = new Schema({
     name: {
        type: String,
-       required:true,
+       requiredd:true,
     },
     email: {
         type:String,
@@ -15,13 +15,25 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
-    designation:{
+    ats:{
         type:String,
         required:true
     },
+    role:{
+        type:String,
+        required:true
+    },
+    fund:{
+        type:int,
+        required:true
+    },
+    validation:{
+        type:String,
+        required:true
+    }
 });
 
-const model = mongoose.model('User', userSchema);
+const model = mongoose.model('User', companyuserSchema);
 
 // export const schema = model.schema;
 export default model;
