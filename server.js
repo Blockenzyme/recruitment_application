@@ -7,10 +7,9 @@ import notFoundMiddleWare from "./middlewares/not-found.js";
 const app = express();
 dotenv.config();
 
-app.get('/',(req,res) => {
-    res.send('welcome');
+app.get("/", (req, res) => {
+  res.send("welcome");
 });
-
 
 app.use(notFoundMiddleWare);
 
