@@ -4,6 +4,7 @@ const {Schema} = mongoose;
 const userSchema = new Schema({
     name: {
        type: String,
+<<<<<<< Updated upstream
        required: [true, 'Please provide name'],
        minlength: 3,
        maxlength: 20,
@@ -12,12 +13,27 @@ const userSchema = new Schema({
     email: {
         type:String,
         required: [true, 'Please provide email'],
+=======
+       required:[true,'Please provide name'],
+       minlength:3,
+       maxlength:20,
+       trim:true,
+    },
+    email: {
+        type:String,
+        required:[true,'Please provide email'],
+>>>>>>> Stashed changes
         unique:true
     },
     password:{
         type:String,
+<<<<<<< Updated upstream
         required: [true, 'Please provide password'],
         minlength: 6,
+=======
+        required:true,
+        minlength:6
+>>>>>>> Stashed changes
     },
     role:{
         type:String,

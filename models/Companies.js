@@ -4,11 +4,11 @@ const {Schema} = mongoose;
 const companyuserSchema = new Schema({
     name: {
        type: String,
-       requiredd:true,
+       required:[true,'Please Provide name']
     },
     email: {
         type:String,
-        required:true,
+        required:[true,'Please Provide email'],
         unique:true
     },
     password:{
@@ -24,13 +24,10 @@ const companyuserSchema = new Schema({
         required:true
     },
     fund:{
-        type:int,
-        required:true
-    },
-    validation:{
-        type:String,
+        type:Number,
         required:true
     }
+    
 });
 
 const model = mongoose.model('User', companyuserSchema);
