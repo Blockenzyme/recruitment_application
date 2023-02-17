@@ -1,36 +1,41 @@
-import mongoose from 'mongoose';
-const {Schema} = mongoose;
+import mongoose from "mongoose";
+import validator from "validator";
 
-const companyuserSchema = new Schema({
-    name: {
-       type: String,
-       required:[true,'Please Provide name']
+const companySchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Please Provide name"],
+    minlength: 3,
+    maxlength: 20,
+    trim: true,
+  },
+  email: {
+    type: String,
+    required: [true, "Please provide email"],
+    validate: {
+      validator: validator.isEmail,
+      message: "Please provide a valid email",
     },
-    email: {
-        type:String,
-        required:[true,'Please Provide email'],
-        unique:true
-    },
-    password:{
-        type:String,
-        required:true
-    },
-    ats:{
-        type:String,
-        required:true
-    },
-    role:{
-        type:String,
-        required:true
-    },
-    fund:{
-        type:Number,
-        required:true
-    }
-    
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: [true, "Please provide password"],
+    minlength: 6,
+    select: false,
+  },
+  ats: {
+    type: String,
+    required: true,
+  },
+  roles: {
+    type: [String],
+    required: true,
+  },
+  fund: {
+    type: String,
+    required: true,
+  },
 });
 
-const model = mongoose.model('User', companyuserSchema);
-
-// export const schema = model.schema;
-export default model;
+export default mongoose.model("Company", companySchema);
