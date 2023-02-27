@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import validator from "validator";
 
-const userSchema = new mongoose.Schema({
+const companySchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please provide name"],
+    required: [true, "Please Provide name"],
     minlength: 3,
     maxlength: 20,
     trim: true,
@@ -24,10 +24,18 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
     select: false,
   },
-  role: {
+  ats: {
+    type: String,
+    required: true,
+  },
+  roles: {
+    type: [String],
+    required: true,
+  },
+  fund: {
     type: String,
     required: true,
   },
 });
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model("Company", companySchema);
