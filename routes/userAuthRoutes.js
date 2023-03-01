@@ -1,6 +1,7 @@
 import express from "express";
 import {signin, register} from "../controllers/authUser.js";
 
+
 const router = express.Router({ mergeParams: true });
 
 router.route("/user-register")
@@ -8,6 +9,7 @@ router.route("/user-register")
   res.send("User Register Page");
 })
 .post(register);
+
 
 router.route("/user-login")
 .get((req, res) => {

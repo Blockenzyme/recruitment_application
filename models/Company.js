@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import passportLocalMongoose from "passport-local-mongoose";
 
 const companySchema = new mongoose.Schema({
   name: {
@@ -8,6 +9,11 @@ const companySchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 20,
     trim: true,
+  },
+  username:{
+    type: String,
+    required: [true, "Please provide username"],
+    unique: true,
   },
   email: {
     type: String,
@@ -20,7 +26,7 @@ const companySchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Please provide password"],
+    // required: [true, "Please provide password"],
     minlength: 6,
     select: false,
   },
@@ -28,7 +34,7 @@ const companySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  roles: {
+  role: {
     type: [String],
     required: true,
   },
@@ -36,6 +42,11 @@ const companySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userType: {
+    type: String,
+    required: true,
+  },
 });
 
+companySchema.plugin(passportLocalMongoose);
 export default mongoose.model("Company", companySchema);
