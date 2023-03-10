@@ -4,7 +4,7 @@ import User from "../models/User.js";
 const signin = async (req, res) => {
   const user = {
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
   };
 
   req.login(user, function (err) {
@@ -16,7 +16,6 @@ const signin = async (req, res) => {
         res.send("Successfully logged in!");
       });
     }
-
   });
 };
 
@@ -26,7 +25,7 @@ const register = async (req, res) => {
     username: req.body.username,
     email: req.body.email,
     role: req.body.role,
-    userType: "user"
+    userType: "user",
   });
   User.register(newUser, req.body.password, function (err, user) {
     if (err) {
@@ -40,4 +39,4 @@ const register = async (req, res) => {
   });
 };
 
-export { signin, register }
+export { signin, register };
