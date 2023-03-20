@@ -39,12 +39,12 @@ const jobApplicantSchema = new mongoose.Schema(
       },
     ],
     skills: [String],
-    resume: {
-      type: String,
-    },
-    profile: {
-      type: String,
-    },
+    // resume: {
+    //   type: String,
+    // },
+    // profile: {
+    //   type: String,
+    // },
   },
   { collation: { locale: "en" } }
 );
