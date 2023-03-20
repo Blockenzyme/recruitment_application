@@ -8,9 +8,9 @@ import MongoStore from "connect-mongo";
 import passport from "passport";
 import mongoose from "mongoose";
 import UserAuthRoutes from "./routes/userAuthRoutes.js";
-import CompanyAuthRoutes from "./routes/companyAuthRoutes.js";
 import UserRoutes from "./routes/userRoutes.js";
-import CompanyRoutes from "./routes/companyRoutes.js";
+import RecruiterAuthRoutes from "./routes/recruiterAuthRoutes.js";
+import RecruiterRoutes from "./routes/recruiterRoutes.js";
 import passportConfig from "./config/passport.js";
 
 import notFoundMiddleWare from "./middlewares/not-found.js";
@@ -62,7 +62,7 @@ passportConfig(passport);
 
 app.use(UserAuthRoutes);
 app.use(UserRoutes);
-app.use(CompanyAuthRoutes);
-app.use(CompanyRoutes);
+app.use(RecruiterAuthRoutes);
+app.use(RecruiterRoutes);
 
 start();

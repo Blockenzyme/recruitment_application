@@ -3,13 +3,6 @@ import validator from "validator";
 import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Please provide name"],
-    minlength: 3,
-    maxlength: 20,
-    trim: true,
-  },
   username: {
     type: String,
     required: [true, "Please provide username"],
@@ -24,18 +17,12 @@ const userSchema = new mongoose.Schema({
     },
     unique: true,
   },
-  password: {
-    type: String,
-    // required: [true, "Please provide password"],
-    minlength: 6,
-    select: false,
-  },
-  role: {
-    type: String,
-    required: true,
-  },
+  // password: {
+  //   type: String,
+  // },
   userType: {
     type: String,
+    enum: ["recruiter", "applicant"],
     required: true,
   },
 });

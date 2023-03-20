@@ -1,17 +1,17 @@
 import passport from "passport";
-import Company from "../models/Company.js";
+import Recruiter from "../models/Recruiter.js";
 
 const signin = async (req, res) => {
-  const company = {
+  const recruiter = {
     username: req.body.username,
     password: req.body.password,
   };
-  req.login(company, function (err) {
+  req.login(recruiter, function (err) {
     if (err) {
       console.log(err);
-      res.redirect("/company-login");
+      res.redirect("/recruiter-login");
     } else {
-      passport.authenticate("companylocal")(req, res, () => {
+      passport.authenticate("recruiterlocal")(req, res, () => {
         res.send("Successfully logged in!");
       });
     }
@@ -19,21 +19,21 @@ const signin = async (req, res) => {
 };
 
 const register = async (req, res) => {
-  const newCompany = new Company({
+  const newRecruiter = new Recruiter({
     name: req.body.name,
     username: req.body.username,
     email: req.body.email,
     ats: req.body.ats,
     role: req.body.role,
     fund: req.body.fund,
-    userType: "company",
+    userType: "recruiter",
   });
-  Company.register(newCompany, req.body.password, function (err, user) {
+  Recruiter.register(newRecruiter, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
-      res.redirect("/company-register");
+      res.redirect("/recruiter-register");
     } else {
-      passport.authenticate("companylocal")(req, res, () => {
+      passport.authenticate("recruiterlocal")(req, res, () => {
         res.send("Successfully registered!");
       });
     }

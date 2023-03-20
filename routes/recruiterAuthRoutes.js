@@ -1,17 +1,17 @@
 import express from "express";
-import { signin, register } from "../controllers/authCompany.js";
+import { signin, register } from "../controllers/authRecruiter.js";
 
 const router = express.Router({ mergeParams: true });
 
-router.route("/company-register")
+router.route("/recruiter-register")
   .get((req, res) => {
-    res.send("Company Register Page");
+    res.send("Recruiter Register Page");
   })
   .post(register);
 
-router.route("/company-login")
+router.route("/recruiter-login")
   .get((req, res) => {
-    res.send("Company Login Page");
+    res.send("Recruiter Login Page");
   })
   .post(signin);
 
