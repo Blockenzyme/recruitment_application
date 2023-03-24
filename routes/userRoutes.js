@@ -1,24 +1,39 @@
-import express from "express";
-import User from "../models/User.js";
+import express from 'express';
+import User from '../models/User.js';
 
 const router = express.Router({ mergeParams: true });
 
-router.route("/user-dashboard").get((req, res) => {
-  console.log(req.user);
-  if (req.isAuthenticated()) {
-    const reqUsername = req.user.username;
-    User.findOne({ username: reqUsername }, function (err, docs) {
-      if (!err) {
-        if (docs && docs.userType === "user") {
-          res.send("User Dashboard");
-        } else {
-          res.redirect("/logout");
+router.route('/user/is-authenticated')
+  .get((req, res) => {
+    if (req.isAuthenticated()) {
+      const reqUsername = req.user.username;
+      User.findOne({ username: reqUsername }, (err, docs) => {
+        if (!err) {
+          if (docs && docs.userType === 'applicant') {
+            res.send(true);
+          } else {
+            res.send(false);
+          }
         }
-      }
-    });
-  } else {
-    res.redirect("/user-login");
-  }
-});
+      });
+    } else {
+      res.send(false);
+    }
+  });
 
 export default router;
+
+/*
+  <Route path="/search" component={Search} onEnter={requireAuth} />
+  requireAuth = async (nextState, replace, next) => {
+    const isAuthenticated = await axios.get(`some-url/user/is-authenticated`);
+    if (!isAuthenticated) {
+      replace({
+        pathname: "/user-login",
+        state: {nextPathname: nextState.location.pathname}
+      });
+    }
+    next();
+  }
+
+*/

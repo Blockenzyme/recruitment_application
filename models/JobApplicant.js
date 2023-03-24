@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const jobApplicantSchema = new mongoose.Schema(
   {
@@ -27,12 +27,12 @@ const jobApplicantSchema = new mongoose.Schema(
           type: Number,
           max: new Date().getFullYear(),
           validate: [
-            { validator: Number.isInteger, msg: "Year should be an integer" },
+            { validator: Number.isInteger, msg: 'Year should be an integer' },
             {
-              validator: function (value) {
+              validator(value) {
                 return this.startYear <= value;
               },
-              msg: "End year should be greater than or equal to Start year",
+              msg: 'End year should be greater than or equal to Start year',
             },
           ],
         },
@@ -46,7 +46,7 @@ const jobApplicantSchema = new mongoose.Schema(
     //   type: String,
     // },
   },
-  { collation: { locale: "en" } }
+  { collation: { locale: 'en' } },
 );
 
-export default mongoose.model("JobApplicantInfo", jobApplicantSchema);
+export default mongoose.model('JobApplicantInfo', jobApplicantSchema);
