@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const jobSchema = new mongoose.Schema(
   {
-    // userId: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: true,
-    // },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -76,17 +76,17 @@ const jobSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-    // deadline: {
-    //   type: Date,
-    //   validate: [
-    //     {
-    //       validator: function (value) {
-    //         return this.dateOfPosting < value;
-    //       },
-    //       msg: "deadline should be greater than dateOfPosting",
-    //     },
-    //   ],
-    // },
+    deadline: {
+      type: Date,
+      validate: [
+        {
+          validator: function (value) {
+            return this.dateOfPosting < value;
+          },
+          msg: "deadline should be greater than dateOfPosting",
+        },
+      ],
+    },
     skillsets: [String],
     jobType: {
       type: String,
