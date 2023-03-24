@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const jobSchema = new mongoose.Schema(
   {
@@ -15,13 +15,13 @@ const jobSchema = new mongoose.Schema(
       validate: [
         {
           validator: Number.isInteger,
-          msg: "maxApplicants should be an integer",
+          msg: 'maxApplicants should be an integer',
         },
         {
-          validator: function (value) {
+          validator(value) {
             return value > 0;
           },
-          msg: "maxApplicants should greater than 0",
+          msg: 'maxApplicants should greater than 0',
         },
       ],
     },
@@ -30,13 +30,13 @@ const jobSchema = new mongoose.Schema(
       validate: [
         {
           validator: Number.isInteger,
-          msg: "maxPostions should be an integer",
+          msg: 'maxPostions should be an integer',
         },
         {
-          validator: function (value) {
+          validator(value) {
             return value > 0;
           },
-          msg: "maxPositions should greater than 0",
+          msg: 'maxPositions should greater than 0',
         },
       ],
     },
@@ -46,13 +46,13 @@ const jobSchema = new mongoose.Schema(
       validate: [
         {
           validator: Number.isInteger,
-          msg: "activeApplications should be an integer",
+          msg: 'activeApplications should be an integer',
         },
         {
-          validator: function (value) {
+          validator(value) {
             return value >= 0;
           },
-          msg: "activeApplications should greater than equal to 0",
+          msg: 'activeApplications should greater than equal to 0',
         },
       ],
     },
@@ -62,13 +62,13 @@ const jobSchema = new mongoose.Schema(
       validate: [
         {
           validator: Number.isInteger,
-          msg: "acceptedCandidates should be an integer",
+          msg: 'acceptedCandidates should be an integer',
         },
         {
-          validator: function (value) {
+          validator(value) {
             return value >= 0;
           },
-          msg: "acceptedCandidates should greater than equal to 0",
+          msg: 'acceptedCandidates should greater than equal to 0',
         },
       ],
     },
@@ -80,10 +80,10 @@ const jobSchema = new mongoose.Schema(
       type: Date,
       validate: [
         {
-          validator: function (value) {
+          validator(value) {
             return this.dateOfPosting < value;
           },
-          msg: "deadline should be greater than dateOfPosting",
+          msg: 'deadline should be greater than dateOfPosting',
         },
       ],
     },
@@ -98,7 +98,7 @@ const jobSchema = new mongoose.Schema(
       validate: [
         {
           validator: Number.isInteger,
-          msg: "Duration should be an integer",
+          msg: 'Duration should be an integer',
         },
       ],
     },
@@ -107,18 +107,18 @@ const jobSchema = new mongoose.Schema(
       validate: [
         {
           validator: Number.isInteger,
-          msg: "Salary should be an integer",
+          msg: 'Salary should be an integer',
         },
         {
-          validator: function (value) {
+          validator(value) {
             return value >= 0;
           },
-          msg: "Salary should be positive",
+          msg: 'Salary should be positive',
         },
       ],
     },
   },
-  { collation: { locale: "en" } }
+  { collation: { locale: 'en' } },
 );
 
-export default mongoose.model("jobs", jobSchema);
+export default mongoose.model('jobs', jobSchema);

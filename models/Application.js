@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const applicationSchema = new mongoose.Schema(
   {
@@ -16,8 +16,8 @@ const applicationSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["applied", "shortlisted", "accepted", "rejected"],
-      default: "applied",
+      enum: ['applied', 'shortlisted', 'accepted', 'rejected'],
+      default: 'applied',
       required: true,
     },
     dateOfApplication: {
@@ -28,24 +28,24 @@ const applicationSchema = new mongoose.Schema(
       type: Date,
       validate: [
         {
-          validator: function (value) {
+          validator(value) {
             return this.dateOfApplication <= value;
           },
-          msg: "dateOfJoining should be greater than dateOfApplication",
+          msg: 'dateOfJoining should be greater than dateOfApplication',
         },
       ],
     },
     sop: {
       type: String,
       validate: {
-        validator: function (v) {
-          return v.split(" ").filter((ele) => ele != "").length <= 250;
+        validator(v) {
+          return v.split(' ').filter((ele) => ele !== '').length <= 250;
         },
-        msg: "Statement of purpose should not be greater than 250 words",
+        msg: 'Statement of purpose should not be greater than 250 words',
       },
     },
   },
-  { collation: { locale: "en" } }
+  { collation: { locale: 'en' } },
 );
 
-export default mongoose.model("application", applicationSchema);
+export default mongoose.model('application', applicationSchema);

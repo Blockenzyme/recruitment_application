@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import validator from "validator";
-import passportLocalMongoose from "passport-local-mongoose";
+import mongoose from 'mongoose';
+import validator from 'validator';
+import passportLocalMongoose from 'passport-local-mongoose';
 
 const RecruiterSchema = new mongoose.Schema(
   {
@@ -14,15 +14,15 @@ const RecruiterSchema = new mongoose.Schema(
     },
     username: {
       type: String,
-      required: [true, "Please provide username"],
+      required: [true, 'Please provide username'],
       unique: true,
     },
     contactEmail: {
       type: String,
-      required: [true, "Please provide email"],
+      required: [true, 'Please provide email'],
       validate: {
         validator: validator.isEmail,
-        message: "Please provide a valid email",
+        message: 'Please provide a valid email',
       },
       unique: true,
     },
@@ -40,10 +40,10 @@ const RecruiterSchema = new mongoose.Schema(
     fund: {
       type: String,
       required: true,
-    }
+    },
   },
-  { collation: { locale: "en" } }
+  { collation: { locale: 'en' } },
 );
 
 RecruiterSchema.plugin(passportLocalMongoose);
-export default mongoose.model("Recruiter", RecruiterSchema);
+export default mongoose.model('Recruiter', RecruiterSchema);
