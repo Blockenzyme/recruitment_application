@@ -1,5 +1,6 @@
-import passport from "passport";
-import User from "../models/User.js";
+import passport from 'passport';
+import User from '../models/User.js';
+import JobApplicant from '../models/JobApplicant.js';
 
 const signin = async (req, res) => {
   const user = {
@@ -7,13 +8,15 @@ const signin = async (req, res) => {
     password: req.body.password,
   };
 
-  req.login(user, function (err) {
+  req.login(user, (err) => {
     if (err) {
+      /* eslint-disable no-console */
       console.log(err);
-      res.redirect("/user-login");
+      /* eslint-enable no-console */
+      res.redirect('/user-login');
     } else {
-      passport.authenticate("userlocal")(req, res, () => {
-        res.send("Successfully logged in!");
+      passport.authenticate('userlocal')(req, res, () => {
+        res.send('Successfully logged in!');
       });
     }
   });
@@ -21,19 +24,27 @@ const signin = async (req, res) => {
 
 const register = async (req, res) => {
   const newUser = new User({
-    name: req.body.name,
     username: req.body.username,
     email: req.body.email,
-    role: req.body.role,
-    userType: "user",
+    userType: 'applicant',
   });
-  User.register(newUser, req.body.password, function (err, user) {
+  User.register(newUser, req.body.password, (err, user) => { // eslint-disable-line no-unused-vars
     if (err) {
+      /* eslint-disable no-console */
       console.log(err);
-      res.redirect("/user-register");
+      /* eslint-enable no-console */
+      res.redirect('/user-register');
     } else {
-      passport.authenticate("userlocal")(req, res, () => {
-        res.send("Successfully registered!");
+      passport.authenticate('userlocal')(req, res, () => {
+        const newJobApplicant = new JobApplicant({
+          /* eslint no-underscore-dangle: 0 */
+          userId: req.user._id,
+          name: req.body.name,
+          education: req.body.education,
+          skills: req.body.skills,
+        });
+        newJobApplicant.save();
+        res.send('Successfully registered!');
       });
     }
   });
