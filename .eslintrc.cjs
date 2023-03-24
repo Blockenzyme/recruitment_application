@@ -6,13 +6,25 @@ module.exports = {
     node: true,
   },
   extends: 'airbnb-base',
-  overrides: [
-  ],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
   },
   rules: {
-    'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
+    'linebreak-style': [
+      'error',
+      process.platform === 'win32' ? 'windows' : 'unix',
+    ],
+    'arrow-body-style': ['error', 'always'],
+    'object-curly-newline': [
+      'error',
+      {
+        // ObjectExpression: 'always',
+        // ObjectPattern: { multiline: true },
+        ImportDeclaration: 'never',
+        ExportDeclaration: 'never',
+      },
+    ],
     'import/extensions': [
       'error',
       {
