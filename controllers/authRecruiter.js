@@ -53,4 +53,23 @@ const register = async (req, res) => {
   });
 };
 
-export { signin, register };
+const ensureRecruiter = (req, res, next) => {
+  // ensure authenticated user exists with admin role,
+  // otherwise send 401 response status
+  if (req.user) {
+    User.findOne({ username: req.user.username }, (err, docs) => {
+      if (!err) {
+        if (docs && docs.userType === 'recruiter') {
+          return next();
+        }
+        return res.sendStatus(404);
+      }
+      return res.sendStatus(500);
+    });
+  } else {
+    return res.sendStatus(401);
+  }
+  return null;
+};
+
+export { signin, register, ensureRecruiter };

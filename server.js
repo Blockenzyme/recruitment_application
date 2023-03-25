@@ -77,13 +77,13 @@ passportConfig(passport);
 // jobs routes
 app.use('/api/v1/jobs', jobs);
 
-// Middlewares
-app.use(notFoundMiddleWare);
-app.use(errorHandleMiddleware);
-
 app.use(UserAuthRoutes);
 app.use(UserRoutes);
 app.use(RecruiterAuthRoutes);
 app.use(RecruiterRoutes);
+
+// Middlewares
+app.use(notFoundMiddleWare);
+app.use(errorHandleMiddleware);
 
 start();

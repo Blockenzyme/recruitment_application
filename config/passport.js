@@ -6,14 +6,16 @@ export default (passport) => {
   passport.use('userlocal', new LocalStrategy(User.authenticate()));
 
   passport.serializeUser((user, cb) => {
-    process.nextTick(() => cb(null, {
-      id: user.id,
-      username: user.username,
-      picture: user.picture,
-    }));
+    process.nextTick(() => {
+      return cb(null, {
+        id: user.id,
+        username: user.username,
+        picture: user.picture,
+      });
+    });
   });
 
   passport.deserializeUser((user, cb) => {
-    process.nextTick(() => cb(null, user));
+    process.nextTick(() => { return cb(null, user); });
   });
 };
