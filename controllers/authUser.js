@@ -69,4 +69,11 @@ const ensureUser = (req, res, next) => {
   return null;
 };
 
-export { signin, register, ensureUser };
+const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  return res.send(401);
+};
+
+export { signin, register, ensureUser, ensureAuthenticated };
