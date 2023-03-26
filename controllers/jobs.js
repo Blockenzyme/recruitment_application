@@ -1,6 +1,5 @@
 import Job from '../models/Job.js';
 import asyncWrapper from '../middlewares/async.js';
-import { createCustomError } from '../errors/custom-error.js';
 
 const getAllJobs = asyncWrapper(async (req, res) => {
   const jobs = await Job.find({});
@@ -13,14 +12,14 @@ const createJob = asyncWrapper(async (req, res) => {
   res.status(201).json({ job });
 });
 
-const getJob = asyncWrapper(async (req, res, next) => {
+const getJob = asyncWrapper(async (req, res) => {
   const { id: jobID } = req.params;
   const job = await Job.findOne({ _id: jobID });
   if (!job) {
-    return next(createCustomError(`No job with id : ${jobID}`, 404));
+    return res.status(404).json({ msg: `No job with id : ${jobID}` });
   }
 
-  res.status(200).json({ job });
+  return res.status(200).json({ job });
 });
 
 const deleteJob = asyncWrapper(async (req, res) => {
@@ -29,7 +28,7 @@ const deleteJob = asyncWrapper(async (req, res) => {
   if (!job) {
     return res.status(404).json({ msg: `No job with id : ${jobID}` });
   }
-  res.status(200).json({ job });
+  return res.status(200).json({ job });
 });
 
 const updateJob = asyncWrapper(async (req, res) => {
@@ -40,10 +39,10 @@ const updateJob = asyncWrapper(async (req, res) => {
     runValidators: true,
   });
   if (!job) {
-    return next(createCustomError(`No job with id : ${jobID}`, 404));
+    return res.status(404).json({ msg: `No job with id : ${jobID}` });
   }
 
-  res.status(200).json({ job });
+  return res.status(200).json({ job });
 });
 
 export { getAllJobs, createJob, getJob, updateJob, deleteJob };

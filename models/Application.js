@@ -39,7 +39,7 @@ const applicationSchema = new mongoose.Schema(
       type: String,
       validate: {
         validator(v) {
-          return v.split(' ').filter((ele) => ele !== '').length <= 250;
+          return v.split(' ').filter((ele) => { return ele !== ''; }).length <= 250;
         },
         msg: 'Statement of purpose should not be greater than 250 words',
       },
