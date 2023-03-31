@@ -17,9 +17,9 @@ const userSchema = new mongoose.Schema({
     },
     unique: true,
   },
-  // password: {
-  //   type: String,
-  // },
+  password: {
+    type: String,
+  },
   userType: {
     type: String,
     enum: ['recruiter', 'applicant'],

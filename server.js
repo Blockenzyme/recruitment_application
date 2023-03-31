@@ -15,6 +15,7 @@ import RecruiterAuthRoutes from './routes/recruiterAuthRoutes.js';
 import RecruiterRoutes from './routes/recruiterRoutes.js';
 import passportConfig from './config/passport.js';
 import jobs from './routes/jobs.js';
+import applicationRoutes from './routes/applicationRoutes.js';
 
 import notFoundMiddleWare from './middlewares/not-found.js';
 import errorHandleMiddleware from './middlewares/error-handler.js';
@@ -76,6 +77,9 @@ passportConfig(passport);
 
 // jobs routes
 app.use('/api/v1/jobs', jobs);
+
+// application routes
+app.use('/api/v1/application', applicationRoutes);
 
 app.use(UserAuthRoutes);
 app.use(UserRoutes);
