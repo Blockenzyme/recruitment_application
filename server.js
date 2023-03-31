@@ -79,7 +79,7 @@ passportConfig(passport);
 app.use('/api/v1/jobs', jobs);
 
 // application routes
-app.use('/api/v1/application', applicationRoutes);
+app.use('/api/v1/jobapplicant', jobapplicant);
 
 app.use(UserAuthRoutes);
 app.use(UserRoutes);
