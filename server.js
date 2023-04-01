@@ -15,7 +15,7 @@ import RecruiterAuthRoutes from './routes/recruiterAuthRoutes.js';
 import RecruiterRoutes from './routes/recruiterRoutes.js';
 import passportConfig from './config/passport.js';
 import jobs from './routes/jobs.js';
-import applicationRoutes from './routes/applicationRoutes.js';
+// import applicationRoutes from './routes/applicationRoutes.js';
 
 import notFoundMiddleWare from './middlewares/not-found.js';
 import errorHandleMiddleware from './middlewares/error-handler.js';
@@ -63,7 +63,7 @@ const start = async () => {
     await connectDB(url);
     app.listen(PORT, () => {
       /* eslint-disable no-console */
-      console.log(`Server is listening on port ${PORT}`);
+      console.log(`Server is running on port ${PORT}`);
       /* eslint-enable no-console */
     });
   } catch (error) {
