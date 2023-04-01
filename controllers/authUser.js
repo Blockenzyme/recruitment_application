@@ -11,7 +11,7 @@ const signin = async (req, res) => {
   req.login(user, (err) => {
     if (err) {
       /* eslint-disable no-console */
-      console.log(err);
+      console.log('desc error', err);
       /* eslint-enable no-console */
       res.redirect('/user-login');
     } else {
@@ -31,7 +31,7 @@ const register = async (req, res) => {
   User.register(newUser, req.body.password, (err, user) => { // eslint-disable-line no-unused-vars
     if (err) {
       /* eslint-disable no-console */
-      console.log(err);
+      console.log('desc error', err);
       /* eslint-enable no-console */
       res.redirect('/user-register');
     } else {

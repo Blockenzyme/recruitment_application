@@ -8,6 +8,7 @@ export const getAllJobApplicants = asyncWrapper(async (req, res) => {
 
 export const createJobApplicant = asyncWrapper(async (req, res) => {
   const jobApplicant = await JobApplicant.create(req.body);
+  console.log('Req body', req.body);
 
   res.status(201).json({ jobApplicant });
 });
