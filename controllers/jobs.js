@@ -1,9 +1,64 @@
+/* eslint no-underscore-dangle: 0 */
 import Job from '../models/Job.js';
 import asyncWrapper from '../middlewares/async.js';
 
 const getAllJobs = asyncWrapper(async (req, res) => {
-  const jobs = await Job.find({});
-  res.status(200).json({ jobs });
+  // eslint-disable-next-line max-len
+  // localhost:3000/api/v1/jobs/?limit=2&next=590e9abd4abbf1165862d342&jobType=Full Time&minSalary=10000&maxSalary=50000&minDuration=3&maxDuration=6&location=Pune&keyword=backend&sort=-salary,duration
+  // eslint-disable-next-line max-len
+  const { jobType, minSalary, maxSalary, minDuration, maxDuration, location, keyword, sort, limit } = req.query;
+  const queryObject = {};
+
+  if (jobType) {
+    queryObject.jobType = jobType;
+  }
+
+  if (minSalary) {
+    if (maxSalary) {
+      queryObject.salary = { $gte: minSalary, $lte: maxSalary };
+    } else {
+      queryObject.salary = { $gte: minSalary };
+    }
+  } else if (maxSalary) {
+    queryObject.salary = { $lte: maxSalary };
+  }
+
+  if (minDuration) {
+    if (maxDuration) {
+      queryObject.duration = { $gte: minDuration, $lte: maxDuration };
+    } else {
+      queryObject.duration = { $gte: minDuration };
+    }
+  } else if (maxDuration) {
+    queryObject.duration = { $lte: maxDuration };
+  }
+
+  let sortFix = '';
+  if (sort) {
+    sortFix = sort.replace(',', ' ');
+    sortFix += ' -_id';
+  } else {
+    sortFix = '-_id';
+  }
+
+  if (req.query.next) {
+    const jobs = Job.find({
+      _id: { $lt: req.query.next },
+      $and: [{ $or: [{ city: { $regex: location, $option: 'i' } }, { country: { $regex: location, $option: 'i' } }] }, { $or: [{ title: { $regex: keyword, $option: 'i' } }, { skillsets: { $all: [keyword] } }] }],
+      ...queryObject,
+    }).sort(sortFix).limit(limit);
+
+    const next = jobs[jobs.length - 1]._id;
+    res.status(200).json({ jobs, next });
+  } else {
+    const jobs = Job.find({
+      $and: [{ $or: [{ city: { $regex: location, $option: 'i' } }, { country: { $regex: location, $option: 'i' } }] }, { $or: [{ title: { $regex: keyword, $option: 'i' } }, { skillsets: { $all: [keyword] } }] }],
+      ...queryObject,
+    }).sort(sortFix).limit(limit);
+
+    const next = jobs[jobs.length - 1]._id;
+    res.status(200).json({ jobs, next });
+  }
 });
 
 const createJob = asyncWrapper(async (req, res) => {
