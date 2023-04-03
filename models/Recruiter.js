@@ -4,9 +4,9 @@ import passportLocalMongoose from 'passport-local-mongoose';
 
 const RecruiterSchema = new mongoose.Schema(
   {
-    userId: {
+    recruiterId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      ref: 'User',
     },
     name: {
       type: String,

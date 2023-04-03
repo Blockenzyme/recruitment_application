@@ -2,17 +2,17 @@ import mongoose from 'mongoose';
 
 const applicationSchema = new mongoose.Schema(
   {
-    userId: {
+    applicantId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
-    },
-    recruiterId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      ref: 'JobApplicantInfo',
     },
     jobId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      ref: 'jobs',
+    },
+    recruiterId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Recruiter',
     },
     status: {
       type: String,
@@ -24,17 +24,17 @@ const applicationSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-    dateOfJoining: {
-      type: Date,
-      validate: [
-        {
-          validator(value) {
-            return this.dateOfApplication <= value;
-          },
-          msg: 'dateOfJoining should be greater than dateOfApplication',
-        },
-      ],
-    },
+    // dateOfJoining: {
+    //   type: Date,
+    //   validate: [
+    //     {
+    //       validator(value) {
+    //         return this.dateOfApplication <= value;
+    //       },
+    //       msg: 'dateOfJoining should be greater than dateOfApplication',
+    //     },
+    //   ],
+    // },
     sop: {
       type: String,
       validate: {

@@ -10,12 +10,10 @@ import mongoose from 'mongoose';
 import connectDB from './db/connect.js';
 
 import UserAuthRoutes from './routes/userAuthRoutes.js';
-import UserRoutes from './routes/userRoutes.js';
-import RecruiterAuthRoutes from './routes/recruiterAuthRoutes.js';
 import RecruiterRoutes from './routes/recruiterRoutes.js';
 import passportConfig from './config/passport.js';
-import jobs from './routes/jobs.js';
-// import applicationRoutes from './routes/applicationRoutes.js';
+import jobRoutes from './routes/jobRoutes.js';
+import jobApplicantRoutes from './routes/jobApplicantRoutes.js';
 
 import notFoundMiddleWare from './middlewares/not-found.js';
 import errorHandleMiddleware from './middlewares/error-handler.js';
@@ -40,7 +38,7 @@ app.get('/', (req, res) => {
 
 // app.use(notFoundMiddleWare);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const url = process.env.MONGO_URL;
 
 // The code-snippet of 'Initializing Session' below should be at this place only
@@ -76,15 +74,16 @@ const start = async () => {
 passportConfig(passport);
 
 // jobs routes
-app.use('/api/v1/jobs', jobs);
+app.use('/api/v1/jobs', jobRoutes);
 
-// application routes
-app.use('/api/v1/application', applicationRoutes);
+// jobApplicant routes
+app.use('/api/v1/jobapplicant', jobApplicantRoutes);
 
-app.use(UserAuthRoutes);
-app.use(UserRoutes);
-app.use(RecruiterAuthRoutes);
-app.use(RecruiterRoutes);
+// authentication routes
+app.use('/api/v1/user', UserAuthRoutes);
+
+// recruiter routes
+app.use('/api/v1/recruiter', RecruiterRoutes);
 
 // Middlewares
 app.use(notFoundMiddleWare);

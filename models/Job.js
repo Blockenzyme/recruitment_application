@@ -2,10 +2,18 @@ import mongoose from 'mongoose';
 
 const jobSchema = new mongoose.Schema(
   {
-    userId: {
+    // userId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    // },
+    recruiterId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      ref: 'Recruiter',
     },
+    // applicantId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'JobApplicantInfo',
+    // },
     title: {
       type: String,
       required: true,
@@ -90,6 +98,7 @@ const jobSchema = new mongoose.Schema(
     skillsets: [String],
     jobType: {
       type: String,
+      enum: ['Full Time', 'Part Time', 'Work From Home'],
       required: true,
     },
     duration: {
@@ -117,8 +126,16 @@ const jobSchema = new mongoose.Schema(
         },
       ],
     },
+    country: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
   },
   { collation: { locale: 'en' } },
 );
 
-export default mongoose.model('jobs', jobSchema);
+export default mongoose.model('Job', jobSchema);
