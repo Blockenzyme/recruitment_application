@@ -12,8 +12,10 @@ import connectDB from './db/connect.js';
 import UserAuthRoutes from './routes/userAuthRoutes.js';
 import RecruiterRoutes from './routes/recruiterRoutes.js';
 import passportConfig from './config/passport.js';
+
 import jobRoutes from './routes/jobRoutes.js';
 import jobApplicantRoutes from './routes/jobApplicantRoutes.js';
+
 
 import notFoundMiddleWare from './middlewares/not-found.js';
 import errorHandleMiddleware from './middlewares/error-handler.js';
