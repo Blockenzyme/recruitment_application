@@ -3,9 +3,8 @@ import { getAllJobs,
   createJob,
   getJob,
   updateJob,
-  deleteJob } from '../controllers/jobs.js';
-import { ensureRecruiter } from '../controllers/authRecruiter.js';
-import { ensureAuthenticated } from '../controllers/authUser.js';
+  deleteJob } from '../controllers/job.js';
+import { ensureAuthenticated, ensureRecruiter } from '../controllers/authController.js';
 
 const router = express.Router({ mergeParams: true });
 

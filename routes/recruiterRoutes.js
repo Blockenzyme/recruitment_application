@@ -1,25 +1,9 @@
 import express from 'express';
-import User from '../models/User.js';
+import { isAuthenticated } from '../controllers/recruiter.js';
 
 const router = express.Router({ mergeParams: true });
 
-router.route('/recruiter/is-authenticated')
-  .get((req, res) => {
-    if (req.isAuthenticated()) {
-      const reqUsername = req.user.username;
-      User.findOne({ username: reqUsername }, (err, docs) => {
-        if (!err) {
-          if (docs && docs.userType === 'recruiter') {
-            res.send(true);
-          } else {
-            res.send(false);
-          }
-        }
-      });
-    } else {
-      res.send(false);
-    }
-  });
+router.route('/is-authenticated').get(isAuthenticated);
 
 export default router;
 

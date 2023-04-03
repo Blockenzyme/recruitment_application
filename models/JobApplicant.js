@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 const jobApplicantSchema = new mongoose.Schema(
   {
-    userId: {
+    applicantId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      ref: 'User',
     },
     name: {
       type: String,

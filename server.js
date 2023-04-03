@@ -10,11 +10,11 @@ import mongoose from 'mongoose';
 import connectDB from './db/connect.js';
 
 import UserAuthRoutes from './routes/userAuthRoutes.js';
-import UserRoutes from './routes/userRoutes.js';
-import RecruiterAuthRoutes from './routes/recruiterAuthRoutes.js';
 import RecruiterRoutes from './routes/recruiterRoutes.js';
 import passportConfig from './config/passport.js';
-import jobs from './routes/jobs.js';
+
+import jobRoutes from './routes/jobRoutes.js';
+import jobApplicantRoutes from './routes/jobApplicantRoutes.js';
 
 
 import notFoundMiddleWare from './middlewares/not-found.js';
@@ -76,14 +76,16 @@ const start = async () => {
 passportConfig(passport);
 
 // jobs routes
-app.use('/api/v1/jobs', jobs);
+app.use('/api/v1/jobs', jobRoutes);
 
+// jobApplicant routes
+app.use('/api/v1/jobapplicant', jobApplicantRoutes);
 
+// authentication routes
+app.use('/api/v1/user', UserAuthRoutes);
 
-app.use(UserAuthRoutes);
-app.use(UserRoutes);
-app.use(RecruiterAuthRoutes);
-app.use(RecruiterRoutes);
+// recruiter routes
+app.use('/api/v1/recruiter', RecruiterRoutes);
 
 // Middlewares
 app.use(notFoundMiddleWare);
