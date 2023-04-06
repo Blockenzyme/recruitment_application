@@ -1,5 +1,7 @@
-
+import Home from "./Home/Home";
+import Contact from "./ContactUs/Contact";
+import About from "./AboutUs/About";
 import Error from "./Error";
-import Landing from "./Landing";
 
-export {Error,Landing};
+
+export {Error,Home,Contact,About};
