@@ -16,7 +16,6 @@ import passportConfig from './config/passport.js';
 import jobRoutes from './routes/jobRoutes.js';
 import jobApplicantRoutes from './routes/jobApplicantRoutes.js';
 
-
 import notFoundMiddleWare from './middlewares/not-found.js';
 import errorHandleMiddleware from './middlewares/error-handler.js';
 
