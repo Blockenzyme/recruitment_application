@@ -86,7 +86,7 @@ const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  return res.send(401);
+  return res.sendStatus(401);
 };
 
 export { signin, register, ensureUser, ensureAuthenticated, ensureRecruiter };

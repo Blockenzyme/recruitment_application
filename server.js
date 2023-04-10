@@ -15,6 +15,7 @@ import passportConfig from './config/passport.js';
 
 import jobRoutes from './routes/jobRoutes.js';
 import jobApplicantRoutes from './routes/jobApplicantRoutes.js';
+import applicationRoutes from './routes/applicationRoutes.js';
 
 import notFoundMiddleWare from './middlewares/not-found.js';
 import errorHandleMiddleware from './middlewares/error-handler.js';
@@ -85,6 +86,9 @@ app.use('/api/v1/user', UserAuthRoutes);
 
 // recruiter routes
 app.use('/api/v1/recruiter', RecruiterRoutes);
+
+// application routes
+app.use('/api/v1/applications', applicationRoutes);
 
 // Middlewares
 app.use(notFoundMiddleWare);
