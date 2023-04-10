@@ -1,6 +1,44 @@
+import asyncWrapper from '../middlewares/async.js';
+import Recruiter from '../models/Recruiter.js';
 import User from '../models/User.js';
 
-const isAuthenticated = async (req, res) => {
+export const createRecruiter = asyncWrapper(async (req, res) => {
+  const recruiter = await Recruiter.create({ recruiterId: req.user.id,
+    ...req.body });
+
+  res.status(201).json({ recruiter });
+});
+
+export const getRecruiter = asyncWrapper(async (req, res) => {
+  const { id: recruiterId } = req.params;
+  const recruiter = await Recruiter.findOne({ _id: recruiterId }).populate('recruiterId');
+  if (!recruiter) {
+    return res.status(404).json({ msg: `No Recruiter with id : ${recruiterId}` });
+  }
+
+  return res.status(200).json({ recruiter });
+});
+
+export const getAllRecruiters = asyncWrapper(async (req, res) => {
+  const recruiters = await Recruiter.find({}).populate('recruiterId');
+  res.status(200).json({ recruiters });
+});
+
+export const updateRecruiter = asyncWrapper(async (req, res) => {
+  const { id: recruiterId } = req.params;
+
+  const recruiter = await Recruiter.findOneAndUpdate({ _id: recruiterId }, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  if (!recruiter) {
+    return res.status(404).json({ msg: `No recruiter with id : ${recruiterId}` });
+  }
+
+  return res.status(200).json({ recruiter });
+});
+
+export const isAuthenticated = async (req, res) => {
   if (req.isAuthenticated()) {
     const reqUsername = req.user.username;
     User.findOne({ username: reqUsername }, (err, docs) => {
@@ -17,4 +55,4 @@ const isAuthenticated = async (req, res) => {
   }
 };
 
-export { isAuthenticated }; // eslint-disable-line
+// export { isAuthenticated }; // eslint-disable-line
