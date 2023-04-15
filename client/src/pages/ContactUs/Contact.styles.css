@@ -1,0 +1,43 @@
+body{
+    font-family: 'Helvetica', arial;
+}
+.contact{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.contactheading{
+    margin-top: 5rem;
+    color: rgb(139,29,157);
+    font-size: 3rem;
+    font-family: 'Helsinki', arial, helvetica, sans-serif;
+    line-height: 1.4rem;
+}
+.contactbody{
+    margin-top: 8rem;
+}
+.contacttext{
+    color: rgb(94,94,94);
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+.contactlink{
+    color:rgb(139,29,157);
+    font-size: 1.125rem;
+}
+hr{
+    position: absolute;
+    top: 8rem;
+    left: calc(50% - 25px);
+    width: 3rem;
+}
+.contactbottom{
+    margin-top: 2rem;
+}
+.contactbottomtext{
+    font-size: 1.5rem;
+}
