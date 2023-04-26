@@ -5,7 +5,7 @@ import "./Contact.styles.css";
 function Contact() {
   return (
     <div className="contact">
-      <h1 className="contactheading">CONTACT US</h1>
+      <h1 className="contactheading">Contact Us</h1>
       <hr />
       <div className="contactbody">
         <p><span className="contacttext">We love our customers, so feel free to contact us during normal business hours.</span></p>
