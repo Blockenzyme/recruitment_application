@@ -37,19 +37,19 @@ function About() {
 
             <br />
             <br />
-           
+
             <Row id="reverse">
-              
+
               <Col className="content col-md-6" id="content2">
                 Founded in 2023 , our team of experts has a wealth of experience in a wide range of technologies, including blockchain development, software engineering, and digital asset management. Our mission is to help businesses stay ahead of the curve in an ever-changing technological landscape.
               </Col>
               <Col className="col-md-6">
-              <img src={about_2} alt="about2" id="about_2"/>
+                <img src={about_2} alt="about2" id="about_2" />
               </Col>
-              
+
             </Row>
-            
-<br/>
+
+            <br />
 
             <Row>
               <Col md={6} sm={12}>
