@@ -27,15 +27,11 @@
     right: 7rem;
 }
 .contact{
-    left: 70vw;
+    left: 65vw;
 }
 
 /* Breakpoints */
-@media (max-width: 1800px) {
-    .contact {
-        left:67vw;
-    }
-}
+
 @media (max-width: 1500px) {
     .contact {
         left: 58vw;
