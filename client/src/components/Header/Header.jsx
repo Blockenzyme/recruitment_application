@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -6,7 +7,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
 } from 'reactstrap';
 import styles from './Header.module.css';
 
@@ -18,18 +18,38 @@ function Header() {
   return (
     <div>
       <Navbar className={styles.Navbar} expand="md">
-        <NavbarBrand href="/" className={styles.brandname}>BLOCKENZYME</NavbarBrand>
+        <NavbarBrand href="/" className={styles.brandname}>
+          BLOCKENZYME
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/" className={styles.home}>HOME</NavLink>
+              <Link
+                to="/"
+                className={styles.home}
+                style={{ textDecoration: "none" }}
+              >
+                HOME
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/about" className={styles.about}>ABOUT US</NavLink>
+              <Link
+                to="/about"
+                className={styles.about}
+                style={{ textDecoration: "none" }}
+              >
+                ABOUT US
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/contact" className={styles.contact}>CONTACT US</NavLink>
+              <Link
+                to="/contact"
+                className={styles.contact}
+                style={{ textDecoration: "none" }}
+              >
+                CONTACT US
+              </Link>
             </NavItem>
           </Nav>
         </Collapse>
