@@ -1,0 +1,50 @@
+.Navbar{
+    background-color: #161616;
+}
+.brandname,
+.home,
+.about,
+.contact {
+    color: #fff !important;
+    letter-spacing: 1.15px;
+    position: relative;
+}
+.brandname{
+    color: #fff;
+    position: relative;
+    left: calc(50% - 6rem);
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    line-height: 35px;
+}
+
+.home{
+    right: 10rem;
+}
+.about{
+    right: 7rem;
+}
+.contact{
+    left: 65vw;
+}
+
+/* Breakpoints */
+
+@media (max-width: 1500px) {
+    .contact {
+        left: 58vw;
+    }
+}
+@media (max-width: 1200px) {
+    .contact {
+        left: 48vw;
+    }
+}
+@media (max-width: 768px){
+    .home, .about, .contact{
+        position: static;
+    }
+}
+
