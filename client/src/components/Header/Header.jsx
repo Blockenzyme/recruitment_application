@@ -18,13 +18,13 @@ function Header() {
   return (
     <div>
       <Navbar className={styles.Navbar} expand="md">
+        <NavbarToggler onClick={toggle} className={styles.navbarToggler}/>
         <NavbarBrand href="/" className={styles.brandname}>
           BLOCKENZYME
         </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
-            <NavItem>
+            <NavItem className={styles.navItem}>
               <Link
                 to="/"
                 className={styles.home}
@@ -33,7 +33,7 @@ function Header() {
                 HOME
               </Link>
             </NavItem>
-            <NavItem>
+            <NavItem className={styles.navItem}>
               <Link
                 to="/about"
                 className={styles.about}
@@ -42,7 +42,7 @@ function Header() {
                 ABOUT US
               </Link>
             </NavItem>
-            <NavItem>
+            <NavItem className={styles.navItem}>
               <Link
                 to="/contact"
                 className={styles.contact}

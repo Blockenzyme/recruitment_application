@@ -12,7 +12,6 @@
 .brandname{
     color: #fff;
     position: relative;
-    left: calc(50% - 6rem);
     font-family: Lato;
     font-weight: bold;
     font-size: 2rem;
@@ -28,6 +27,9 @@
 }
 .contact{
     left: 65vw;
+}
+.navbarToggler {
+    background-color: azure;
 }
 
 /* Breakpoints */
@@ -46,5 +48,14 @@
     .home, .about, .contact{
         position: static;
     }
+    .navItem{
+        text-align: center;
+        padding: 4px;
+    }
 }
 
+@media (min-width: 420px){
+    .brandname{
+        left: calc(50% - 6rem);
+    }
+}
