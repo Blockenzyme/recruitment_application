@@ -62,7 +62,7 @@ const getAllJobs = asyncWrapper(async (req, res) => {
 });
 
 const createJob = asyncWrapper(async (req, res) => {
-  const job = await Job.create(req.body);
+  const job = await Job.create({ recruiterId: req.user.id, ...req.body });
 
   res.status(201).json({ job });
 });

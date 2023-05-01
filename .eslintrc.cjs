@@ -11,6 +11,9 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'import/no-extraneous-dependencies': 0,
+    'no-await-in-loop': 0,
+    'no-restricted-syntax': 0,
     'linebreak-style': [
       'error',
       process.platform === 'win32' ? 'windows' : 'unix',

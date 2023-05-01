@@ -3,7 +3,10 @@ import Recruiter from '../models/Recruiter.js';
 import User from '../models/User.js';
 
 export const createRecruiter = asyncWrapper(async (req, res) => {
+  const { email } = await User.findOne({ _id: req.user.id });
   const recruiter = await Recruiter.create({ recruiterId: req.user.id,
+    contactEmail: email,
+    username: req.user.username,
     ...req.body });
 
   res.status(201).json({ recruiter });
