@@ -7,6 +7,7 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import connectDB from './db/connect.js';
 
 import UserAuthRoutes from './routes/userAuthRoutes.js';
@@ -31,6 +32,15 @@ app.use(express.static('public'));
 app.use(
   bodyParser.urlencoded({
     extended: true,
+  }),
+);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: 'http://localhost:3000', // <-- location of the react app were connecting to
+    credentials: true,
   }),
 );
 
