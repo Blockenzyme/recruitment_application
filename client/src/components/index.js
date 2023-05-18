@@ -1,3 +1,6 @@
-import Logo from "./Logo";
+import Navbar from "./navbar/Navbar.jsx";
+import LoginModal from "./modals/login/LoginModal";
+import SignUp from "./modals/signup/SignUp";
 
-export {Logo};
+
+export {LoginModal,Navbar,SignUp};

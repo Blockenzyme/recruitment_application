@@ -1,18 +1,29 @@
 import React from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-import { Landing,Error} from './pages';
+import { Routes, Route, Navigate } from "react-router-dom";
+import {
+  Landing,
+  Register,
+  About,
+  HireEmployees,
+  FindJobs,
+  JobDescription,
+} from "./pages";
+import { Navbar } from './components';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <nav>
-        <Link to="/">Landing</Link>
-        <Link to="/register">Register</Link>
-      </nav>
+      <Navbar/>
       <Routes>
-        <Route path="/" element={<Landing/>} />
-        <Route path="*" element={<Error/>} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/hire-employees" element={<HireEmployees />} />
+        <Route path="/find-jobs" element={<FindJobs />} />
+        <Route path="/job-desc" element={<JobDescription />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
