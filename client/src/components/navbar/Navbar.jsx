@@ -12,6 +12,8 @@ import {
   Button,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import LoginForm from "../forms/login/LoginForm";
+import SignUpForm from "../forms/signup/SignUpForm";
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,12 +65,12 @@ const NavbarComponent = () => {
 
       <Modal isOpen={loginModalOpen} toggle={toggleLoginModal} centered>
         <ModalHeader toggle={toggleLoginModal}>Login</ModalHeader>
-        <ModalBody>{/* Login form */}</ModalBody>
+        <ModalBody><LoginForm/></ModalBody>
       </Modal>
 
       <Modal isOpen={signupModalOpen} toggle={toggleSignupModal} centered>
         <ModalHeader toggle={toggleSignupModal}>Sign Up</ModalHeader>
-        <ModalBody>{/* Signup form */}</ModalBody>
+        <ModalBody><SignUpForm/></ModalBody>
       </Modal>
     </div>
   );

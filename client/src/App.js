@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import {
   Landing,
-  Register,
   About,
   HireEmployees,
   FindJobs,
@@ -22,7 +21,6 @@ function App() {
         <Route path="/hire-employees" element={<HireEmployees />} />
         <Route path="/find-jobs" element={<FindJobs />} />
         <Route path="/job-desc" element={<JobDescription />} />
-        <Route path="/register" element={<Register />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
