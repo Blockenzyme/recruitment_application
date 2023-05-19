@@ -14,16 +14,19 @@ import {
 import { Link } from "react-router-dom";
 import LoginForm from "../forms/login/LoginForm";
 import SignUpForm from "../forms/signup/SignUpForm";
+import UserTypeComponent from "../usertype/UserTypeModal";
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [signupModalOpen, setSignupModalOpen] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   const toggleLoginModal = () => setLoginModalOpen(!loginModalOpen);
   const toggleSignupModal = () => setSignupModalOpen(!signupModalOpen);
+  const toggleSuccessModal = () => setSuccessModalOpen(!successModalOpen);
 
   return (
     <div>
@@ -50,9 +53,7 @@ const NavbarComponent = () => {
           </Nav>
           <Nav className="ml-auto" navbar>
             <NavItem className="px-4">
-              <Button  onClick={toggleLoginModal}>
-                Login
-              </Button>
+              <Button onClick={toggleLoginModal}>Login</Button>
             </NavItem>
             <NavItem>
               <Button color="primary" onClick={toggleSignupModal}>
@@ -65,12 +66,23 @@ const NavbarComponent = () => {
 
       <Modal isOpen={loginModalOpen} toggle={toggleLoginModal} centered>
         <ModalHeader toggle={toggleLoginModal}>Login</ModalHeader>
-        <ModalBody><LoginForm/></ModalBody>
+        <ModalBody>
+          <LoginForm />
+        </ModalBody>
       </Modal>
 
       <Modal isOpen={signupModalOpen} toggle={toggleSignupModal} centered>
         <ModalHeader toggle={toggleSignupModal}>Sign Up</ModalHeader>
-        <ModalBody><SignUpForm/></ModalBody>
+        <ModalBody>
+          <SignUpForm />
+        </ModalBody>
+      </Modal>
+
+      <Modal isOpen={successModalOpen} toggle={toggleSuccessModal} centered>
+        <ModalHeader toggle={toggleSuccessModal}>Success!</ModalHeader>
+        <ModalBody>
+         <UserTypeComponent/>
+        </ModalBody>
       </Modal>
     </div>
   );
