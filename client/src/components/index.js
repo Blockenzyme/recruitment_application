@@ -1,6 +1,6 @@
-import Navbar from "./navbar/Navbar.jsx";
+import NavbarComponent from "./navbar/Navbar";
 import LoginModal from "./modals/login/LoginModal";
 import SignUp from "./modals/signup/SignUp";
 
 
-export {LoginModal,Navbar,SignUp};
+export { LoginModal, NavbarComponent, SignUp };

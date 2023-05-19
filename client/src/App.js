@@ -8,14 +8,14 @@ import {
   FindJobs,
   JobDescription,
 } from "./pages";
-import { Navbar } from './components';
+import { NavbarComponent } from './components';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <NavbarComponent />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
