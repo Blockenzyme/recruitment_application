@@ -1,0 +1,35 @@
+.foot {
+    height: 136px;
+    background: #000000;
+}
+
+.footer {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+    align-items: center;
+    text-align: center;
+    color: #969696;
+    position: absolute;
+    margin: 50px;
+    margin-left: 650px;
+    display: inline;
+}
+
+@media screen and (max-width: 738px) {
+    .footer {
+        display: flex;
+        margin: 40px;
+        align-self: center;
+        margin-left: 70px;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #969696;
+    }
+}
