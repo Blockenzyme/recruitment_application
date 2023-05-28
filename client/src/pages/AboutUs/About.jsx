@@ -22,7 +22,7 @@ function About() {
           <div className="col-sm-12">
             <Row>
               <Col md={6} lg={6}>
-                <img src={about_1} alt="about_1" id="about_1" className="col-lg-6" />
+                <img src={about_1} alt="about_1" id="about_1"  />
               </Col>
               <Col md={6} className="content col-md-6 col-lg-6">
                 <span>Blockenzyme, a dynamic tech outsourcing company founded 
