@@ -3,7 +3,6 @@ import { Row, Col, Container } from "reactstrap";
 import about_1 from "../../assets/img1.png";
 import about_2 from "../../assets/img2.jpg";
 import about_3 from "../../assets/img3.jpg";
-import Footer from "../../components/footer";
 import "./About.styles.css";
 
 function About() {
@@ -89,9 +88,6 @@ function About() {
       </div>
       <br />
       <br />
-      <div className="foot">
-        <Footer />
-      </div>
     </React.Fragment>
   );
 }

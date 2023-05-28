@@ -1,0 +1,74 @@
+.Navbar{
+    background-color: #161616;
+}
+.brandname,
+.home,
+.about,
+.contact {
+    color: #fff !important;
+    letter-spacing: 1.15px;
+    position: relative;
+}
+.brandname{
+    color: #fff;
+    position: relative;
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    line-height: 35px;
+}
+
+.home{
+    right: 10rem;
+}
+.about{
+    right: 7rem;
+}
+.contact{
+    left: 65vw;
+}
+.navbarToggler {
+    background-color: azure;
+}
+
+/* Breakpoints */
+
+@media (max-width: 1500px) {
+    .contact {
+        left: 58vw;
+    }
+}
+@media (max-width: 1200px) {
+    .contact {
+        left: 48vw;
+    }
+}
+@media (max-width: 820px) {
+
+    .home,
+    .about,
+    .contact {
+        position: static;
+    }
+
+    .navItem {
+        text-align: center;
+        padding: 4px;
+    }
+    .brandname {
+        position: absolute;
+        top: 5px;
+    }
+}
+
+@media (min-width: 420px){
+    .brandname{
+        left: calc(50% - 6rem);
+    }
+}
+@media (max-width: 420px){
+    .brandname{
+        left: calc(50% - 6rem);
+    }
+}
