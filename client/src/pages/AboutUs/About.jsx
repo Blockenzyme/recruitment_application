@@ -3,9 +3,8 @@ import { Row, Col, Container } from "reactstrap";
 import about_1 from "../../assets/img1.png";
 import about_2 from "../../assets/img2.jpg";
 import about_3 from "../../assets/img3.jpg";
-import Footer from '../../components/footer';
+import Footer from "../../components/footer";
 import "./About.styles.css";
-
 
 function About() {
   return (
@@ -31,10 +30,15 @@ function About() {
                 <br />
                 <br />
 
-                <span>At Blockenzyme, we believe that technology is a powerful tool that can revolutionize the way businesses operate. Our team is dedicated to delivering cutting-edge solutions that help our clients streamline their operations, increase efficiency, and stay ahead of the competition.</span>
+                <span>
+                  At Blockenzyme, we believe that technology is a powerful tool
+                  that can revolutionize the way businesses operate. Our team is
+                  dedicated to delivering cutting-edge solutions that help our
+                  clients streamline their operations, increase efficiency, and
+                  stay ahead of the competition.
+                </span>
               </Col>
             </Row>
-
             <br />
             <br />
             
@@ -50,37 +54,32 @@ function About() {
               </Row>
             
             <br />
-
             <Row>
               <Col md={6} sm={12} lg={6}>
                 <img id="about_3" src={about_3} alt="about_3" />
-
-
               </Col>
               <Col md={6} sm={12} lg={6} className="content">
                 <p>In addition to our tech outsourcing services, we also hold regular tech seminars led by industry experts, including our founder. These seminars provide a platform for attendees to learn about new technologies, network with other professionals, and stay up-to-date on the latest industry developments.
                 </p>
-
                 <br />
-                <p>Join us on our mission to empower businesses and individuals with the knowledge and skills they need to succeed in a rapidly changing technological landscape. Contact us today to learn more about how we can help you stay ahead of the curve.</p>
-
+                <p>
+                  Join us on our mission to empower businesses and individuals
+                  with the knowledge and skills they need to succeed in a
+                  rapidly changing technological landscape. Contact us today to
+                  learn more about how we can help you stay ahead of the curve.
+                </p>
               </Col>
             </Row>
             <br />
-
           </div>
         </Container>
       </div>
-
       <br />
       <br />
       <div className="foot">
-
         <Footer />
-
       </div>
     </React.Fragment>
-
   );
 }
 
