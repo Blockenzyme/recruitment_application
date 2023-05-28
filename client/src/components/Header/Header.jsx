@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <div>
-      <Navbar className={styles.Navbar} expand="md">
+      <Navbar className={styles.Navbar} expand="lg">
         <NavbarToggler onClick={toggle} className={styles.navbarToggler}/>
         <NavbarBrand href="/" className={styles.brandname}>
           BLOCKENZYME

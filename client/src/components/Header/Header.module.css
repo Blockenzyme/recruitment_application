@@ -44,17 +44,30 @@
         left: 48vw;
     }
 }
-@media (max-width: 768px){
-    .home, .about, .contact{
+@media (max-width: 820px) {
+
+    .home,
+    .about,
+    .contact {
         position: static;
     }
-    .navItem{
+
+    .navItem {
         text-align: center;
         padding: 4px;
+    }
+    .brandname {
+        position: absolute;
+        top: 5px;
     }
 }
 
 @media (min-width: 420px){
+    .brandname{
+        left: calc(50% - 6rem);
+    }
+}
+@media (max-width: 420px){
     .brandname{
         left: calc(50% - 6rem);
     }
