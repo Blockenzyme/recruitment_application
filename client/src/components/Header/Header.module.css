@@ -67,3 +67,8 @@
         left: calc(50% - 6rem);
     }
 }
+@media (max-width: 420px){
+    .brandname{
+        left: calc(50% - 6rem);
+    }
+}
