@@ -10,11 +10,11 @@ import "./About.styles.css";
 function About() {
   return (
     <React.Fragment>
-      <div className="elmnt">
+      <div>
         <Container>
           <div>
             <Row>
-              <Col md={12} >
+              <Col md={6} sm={12} >
                 <h1 id="about" className="col-sm-12"><span>About us</span></h1>
               </Col>
             </Row>
@@ -23,10 +23,10 @@ function About() {
           <br />
           <div className="col-sm-12">
             <Row>
-              <Col md={6}  >
-                <img src={about_1} alt="about_1" id="about_1" />
+              <Col md={6} lg={6}>
+                <img src={about_1} alt="about_1" id="about_1" className="col-lg-6" />
               </Col>
-              <Col md={6} className="content">
+              <Col md={6} className="content col-md-6 col-lg-6">
                 <span>Blockenzyme, a dynamic tech outsourcing company founded by Swapnil Kole, is a visionary in the field of technology. We provide innovative technology solutions to businesses and organizations of all sizes, and are dedicated to sharing our expertise and knowledge through engaging and educational tech seminars.</span>
                 <br />
                 <br />
@@ -37,27 +37,27 @@ function About() {
 
             <br />
             <br />
+            
+              <Row id="reverse">
 
-            <Row id="reverse">
+                <Col lg={6} className="content col-md-6 col-lg-6" id="content2">
+                  Founded in 2023 , our team of experts has a wealth of experience in a wide range of technologies, including blockchain development, software engineering, and digital asset management. Our mission is to help businesses stay ahead of the curve in an ever-changing technological landscape.
+                </Col>
+                <Col lg={6} className="col-md-6 col-lg-6">
+                  <img src={about_2} alt="about2" id="about_2" />
+                </Col>
 
-              <Col className="content col-md-6" id="content2">
-                Founded in 2023 , our team of experts has a wealth of experience in a wide range of technologies, including blockchain development, software engineering, and digital asset management. Our mission is to help businesses stay ahead of the curve in an ever-changing technological landscape.
-              </Col>
-              <Col className="col-md-6">
-                <img src={about_2} alt="about2" id="about_2" />
-              </Col>
-
-            </Row>
-
+              </Row>
+            
             <br />
 
             <Row>
-              <Col md={6} sm={12}>
+              <Col md={6} sm={12} lg={6}>
                 <img id="about_3" src={about_3} alt="about_3" />
 
 
               </Col>
-              <Col md={6} sm={12} className="content">
+              <Col md={6} sm={12} lg={6} className="content">
                 <p>In addition to our tech outsourcing services, we also hold regular tech seminars led by industry experts, including our founder. These seminars provide a platform for attendees to learn about new technologies, network with other professionals, and stay up-to-date on the latest industry developments.
                 </p>
 
