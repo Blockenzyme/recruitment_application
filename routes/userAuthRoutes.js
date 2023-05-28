@@ -1,11 +1,14 @@
 import express from 'express';
 import User from '../models/User.js';
-import { signin, register } from '../controllers/authController.js';
+import { signin, register, multipleRegister } from '../controllers/authController.js';
 
 const router = express.Router({ mergeParams: true });
 
 router.route('/register')
   .post(register);
+
+router.route('/register/all')
+  .post(multipleRegister);
 
 router.route('/login')
   .post(signin);

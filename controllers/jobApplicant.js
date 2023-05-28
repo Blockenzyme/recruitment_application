@@ -3,6 +3,8 @@ import JobApplicant from '../models/JobApplicant.js';
 import asyncWrapper from '../middlewares/async.js';
 import User from '../models/User.js';
 
+const { log } = console;
+
 export const getAllJobApplicants = asyncWrapper(async (req, res) => {
   // eslint-disable-next-line max-len
   // localhost:5000/api/v1/jobapplicants/?limit=2&next=590e9abd4abbf1165862d342&name=ayush&institutionName=iiit&startYear=2021&endYear=2025&keyword=backend&sort=-startYear
@@ -61,6 +63,19 @@ export const createJobApplicant = asyncWrapper(async (req, res) => {
     ...req.body });
 
   res.status(201).json({ jobApplicant });
+});
+
+export const createJobApplicants = asyncWrapper(async (req, res) => {
+  for (let i = 0; i < req.body.length; i += 1) {
+    await JobApplicant.create(req.body[i])
+      .then((response) => {
+        log(response);
+      })
+      .catch((error) => {
+        log(error);
+      });
+  }
+  res.status(200).send({ done: true });
 });
 
 export const getJobApplicant = asyncWrapper(async (req, res) => {

@@ -1,5 +1,9 @@
 import passport from 'passport';
+import axios from 'axios';
 import User from '../models/User.js';
+import asyncWrapper from '../middlewares/async.js';
+
+const { log } = console;
 
 const signin = async (req, res) => {
   const user = {
@@ -43,6 +47,19 @@ const register = async (req, res) => {
     }
   });
 };
+
+export const multipleRegister = asyncWrapper(async (req, res) => {
+  for (let i = 0; i < req.body.length; i += 1) {
+    await axios.post('http://localhost:5000/api/v1/user/register', req.body[i])
+      .then((response) => {
+        log(response);
+      })
+      .catch((error) => {
+        log(error);
+      });
+  }
+  res.status(200).send({ done: true });
+});
 
 const ensureUser = (req, res, next) => {
   // ensure authenticated user exists with admin role,
