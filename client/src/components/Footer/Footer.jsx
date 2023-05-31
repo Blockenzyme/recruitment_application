@@ -14,7 +14,7 @@ function Footer() {
           <a href="https://instagram.com/blockenzyme_meta?igshid=ZDc4ODBmNjlmNQ==">
             <box-icon type="logo" name="instagram" color="azure"></box-icon>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=10009250a href">
+          <a href="https://www.facebook.com/profile.php?id=100092506163686">
             <box-icon type="logo" name="facebook" color="azure"></box-icon>
           </a>
         </span>
