@@ -8,14 +8,17 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  /* or 150% */
-  align-items: center;
-  text-align: center;
   color: #969696;
-  position: absolute;
-  margin: 50px;
-  margin-left: 650px;
-  display: inline;
+  width: 60vw;
+  margin: auto;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer a{
+  margin: 0 0.5rem;
 }
 
 @media screen and (min-width:734px) and (max-width:1200px){
@@ -26,9 +29,8 @@
 
 @media screen and (max-width: 738px) {
   .footer {
-    margin: 40px;
-    align-self: center;
-    margin-left: 70px;
+    margin: 0 auto;
+    justify-content: center;
     font-family: "Arial";
     font-style: normal;
     font-weight: 400;
