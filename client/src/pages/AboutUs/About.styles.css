@@ -56,6 +56,7 @@
   }
   #content2 {
     display: contents;
+    padding: 10%;
   }
   #about_1 {
     width: 700px;
@@ -109,16 +110,38 @@
     align-items: center;
     align-self: center;
     align-content: center;
+    padding: 5%;
+    margin: 0%;
+    position: relative;
+    
+    
   }
 
   #about_3 {
     width: 100%;
     margin-left: 0px;
+    margin-top: 10%;
+    position: inherit;
   }
   
 }
+@media screen and (max-width: 480px) {
+  #about_3{
+    margin-top: 20vw;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  #about_3{
+    margin-top: 30vw;
+  }
+}
+
+
 @media screen and (min-width: 1201px) {
   #content2 {
     width: 50%;
   }
 }
+
+
