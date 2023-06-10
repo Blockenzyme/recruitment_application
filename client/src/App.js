@@ -7,7 +7,7 @@ import {
   FindJobs,
   JobDescription,
 } from "./pages";
-import { NavbarComponent } from './components';
+import { NavbarComponent, Footer } from './components';
 
 import './App.css';
 
@@ -23,6 +23,7 @@ function App() {
         <Route path="/job-desc" element={<JobDescription />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
