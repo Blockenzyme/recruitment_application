@@ -10,6 +10,15 @@ const jobApplicantSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    experience: {
+      type: Number,
+      required: true,
+      validate: [
+        {
+          validator: Number.isInteger, msg: 'It should be no',
+        },
+      ],
+    },
     education: [
       {
         institutionName: {

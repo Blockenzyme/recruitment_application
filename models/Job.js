@@ -126,6 +126,22 @@ const jobSchema = new mongoose.Schema(
         },
       ],
     },
+    experience: {
+      type: Number,
+      required: true,
+      validate: [
+        {
+          validator: Number.isInteger,
+          msg: 'It should be no',
+        },
+        {
+          validator(value) {
+            return value >= 0;
+          },
+          msg: 'Experience should be positive',
+        },
+      ],
+    },
     country: {
       type: String,
       required: true,
