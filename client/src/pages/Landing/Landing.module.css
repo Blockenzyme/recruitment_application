@@ -1,0 +1,145 @@
+.herosection{
+    margin: 0;
+    padding: 5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.herotext{
+    margin: 0.5rem;
+}
+.herotext h1{
+    color: rgba(29, 78, 216, 0.69);
+    line-height: 7.25rem;
+    font-size: 6rem;
+    font-weight: 700;
+}
+.herotext p{
+    line-height: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 2rem auto;
+}
+.herotext button,.exploreNow button{
+    border-radius: 1.25rem;
+    background-color: #5540C7;
+    width: 14.5rem;
+    height: 3.25rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    margin: 1rem;
+    -webkit-border-radius: 1.25rem;
+    -moz-border-radius: 1.25rem;
+    -ms-border-radius: 1.25rem;
+    -o-border-radius: 1.25rem;
+}
+.howwework{
+    text-align: center;
+}
+.howwework h5{
+    line-height: 2.75rem;
+    font-size: 2.25rem;
+}
+.companyName{
+    text-transform: uppercase;
+    color: rgb(85, 64, 199);
+}
+.howwework{
+    margin: 2rem auto;
+}
+.howweworkflex{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+}
+.howweworkflex img{
+    width: 200px;
+    height: 200px;
+}
+.howweworkflex h6{
+    line-height: 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.exploreNow{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    width: 100vw;
+    margin: 2rem auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.exploreNow p{
+    width: 50vw;
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+}
+.exploretext{
+    color: #5640C9;
+}
+.companies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.companies h2{
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+}
+hr{
+    height: 2;
+    color: #5540C7;
+}
+.companies hr{
+    width: 60vw;
+}
+.logoSection{
+    margin: 2rem auto;
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+}
+.logoSection img{
+    height: 150px;
+    margin: 1rem;
+}
+@media (max-width: 912px){
+    .herosection{
+        flex-direction: column;
+    }
+    .herosection img{
+        width: 80vw;
+    }
+    .herotext{
+        text-align: center;
+        padding-bottom: 4rem;
+    }
+    .howweworkflex{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .logoSection{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .logoSection img{
+        margin: 1rem auto;
+    }
+}
+@media (max-width: 420px){
+    .howwework img{
+        width: 160px;
+        height: 160px;
+    }
+    .logoSection{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
