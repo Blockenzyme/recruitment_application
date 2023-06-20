@@ -2,6 +2,8 @@
 import Job from '../models/Job.js';
 import asyncWrapper from '../middlewares/async.js';
 
+const { log } = console;
+
 const getAllJobs = asyncWrapper(async (req, res) => {
   // eslint-disable-next-line max-len
   // localhost:5000/api/v1/jobs/?limit=2&next=590e9abd4abbf1165862d342&jobType=Full Time&minSalary=10000&maxSalary=50000&minDuration=3&maxDuration=6&location=Pune&keyword=backend&sort=-salary,duration
@@ -65,6 +67,19 @@ const createJob = asyncWrapper(async (req, res) => {
   const job = await Job.create({ recruiterId: req.user.id, ...req.body });
 
   res.status(201).json({ job });
+});
+
+export const createJobs = asyncWrapper(async (req, res) => {
+  for (let i = 0; i < req.body.length; i += 1) {
+    await Job.create(req.body[i])
+      .then((response) => {
+        log(response);
+      })
+      .catch((error) => {
+        log(error);
+      });
+  }
+  res.status(200).send({ done: true });
 });
 
 const getJob = asyncWrapper(async (req, res) => {

@@ -1,6 +1,7 @@
 import express from 'express';
 import { getAllJobApplicants,
   createJobApplicant,
+  createJobApplicants,
   getJobApplicant,
   updateJobApplicant,
   isAuthenticated } from '../controllers/jobApplicant.js';
@@ -10,6 +11,7 @@ import { ensureUser, ensureAuthenticated } from '../controllers/authController.j
 const router = express.Router({ mergeParams: true });
 
 router.route('/').get(ensureAuthenticated, getAllJobApplicants).post(ensureUser, createJobApplicant);
+router.route('/multiple').post(createJobApplicants);
 router.route('/is-authenticated').get(isAuthenticated);
 router.route('/:id').get(ensureAuthenticated, getJobApplicant).patch(ensureUser, updateJobApplicant);
 
