@@ -1,0 +1,237 @@
+.jobsPage{
+    margin: 2rem 4rem;
+}
+.topSection{
+    margin-bottom: 4rem;
+}
+.topSection h2{
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+    margin-bottom: 2.5rem;
+}
+.searchSection{
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 6rem;
+    border: solid 1px #000;
+    border-radius: 3rem;
+    padding: 0.4rem 0.8rem;
+    align-items: center;
+}
+.searchSection img{
+    height: 2.25rem;
+    padding-right: 1.5rem;
+}
+.searchSection input{
+    border: none;
+    width: fit-content;
+}
+.searchSection input:focus-visible{
+    outline: none;
+}
+.searchSection input::placeholder{
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
+}
+.vline{
+    width: 0;
+    height: 3.5rem;
+    border: 1px solid #000;
+    margin: auto 1.5rem;
+}
+.searchbtn{
+    border-radius: 2.5rem;
+    background-color: #5540C7;
+    width: 12rem;
+    height: 3.25rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    margin-left: auto;
+}
+.jobtags{
+    display: flex;
+    overflow-x: scroll;
+}
+.jobtags::-webkit-scrollbar,.jobListing::-webkit-scrollbar,.filtersSection::-webkit-scrollbar{
+    display: none;
+}
+.jobtags>span{
+    background-color: #EEF5FE;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5rem;
+    margin: auto 1rem;
+    min-width: fit-content;
+}
+.mainSection>hr{
+    opacity: 1;
+    color: #000;
+    margin-top: 1.5rem;
+}
+.jobs{
+    height:60vh;
+    display: flex;
+}
+.filtersSection{
+    width: 18vw;
+    overflow-y: scroll;
+}
+.filtersSection h2{
+    margin: 1.5rem auto;
+}
+.filters {
+    color: #5640C9;
+}
+.filter h4{
+    margin: 1rem auto;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+.filter>span{
+    line-height: 22px;
+}
+.filter>span>label{
+    font-weight: 400;
+    margin-left: 1rem;
+}
+.jobListing{
+    flex: 1 1 100%;
+    overflow-y: scroll;
+}
+.job{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.job>*{
+    padding: 0 1.5rem;
+}
+.job h4{
+    font-weight: 700;
+    margin:auto;
+}
+.job>span>* {
+    font-weight: 700;
+    margin: 0.5rem;
+}
+.jobtag{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.jobtag>span{
+    background-color: #EEF5FE;
+    font-weight: 700;
+    border-radius: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    -webkit-border-radius: 0.7rem;
+    -moz-border-radius: 0.7rem;
+    -ms-border-radius: 0.7rem;
+    -o-border-radius: 0.7rem;
+}
+.jobLogo{
+    height: 5rem;
+    width: auto;
+}
+.job:hover {
+    background-color: #eef5fe;
+    cursor: pointer;
+}
+.job:hover .jobtag>span{
+    background-color: #fff;
+}
+@media(max-width: 1300px){
+    .jobs {
+        flex-direction: column;
+    }
+    .filtersButton{
+        display: flex;
+    }
+    .filtersButton>p{
+        margin-left: auto;
+        padding-right: 0.5rem;
+        padding-bottom: 1rem;
+        color: #5540C7;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+    .filtersSection {
+        width: 100vw;
+        height:45vh;
+    }
+    .filters{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 0 2.5rem;
+    }
+}
+@media(max-width: 850px){
+    .jobsPage{
+        margin: 1rem;
+    }
+    .searchSection{
+        flex-direction: column;
+    }
+    .job{
+        padding: 1rem 0;
+    }
+    .searchSection >div{
+        margin: 0.3rem 0;
+    }
+    .searchbtn{
+        margin-top: 0.8rem;
+    }
+    .searchSection img{
+        height: 1.5rem;
+    }
+    .vline{
+        display: none;
+    }
+    .jobtag{
+        display: none;
+    }
+
+}
+@media(max-width: 440px){
+    .filters{
+        justify-content: left;
+    }
+    .jobsPage{
+        margin: 0.5rem;
+    }
+    .filtersSection {
+        min-height: 75vh;
+    }
+    .jobLogo{
+        height: 3rem;
+        width: fit-content;
+    }
+    .job>*{
+        padding: 0 0.4rem;
+    }
+    .job>span{
+        padding: 0 0.1rem;
+    }
+    .job>span>h4{
+        font-size: 1.2rem;
+    }
+    .job>span>h6{
+        font-size: 0.75rem;
+    }
+    .job>h4{
+        font-size: 1rem;
+    }
+    .searchSection{
+        max-height: 10rem;
+    }
+    .searchbtn{
+        margin: auto;
+    }
+    
+}

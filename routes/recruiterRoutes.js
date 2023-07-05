@@ -1,6 +1,7 @@
 import express from 'express';
 import { isAuthenticated,
   createRecruiter,
+  createRecruiters,
   getRecruiter,
   getAllRecruiters } from '../controllers/recruiter.js';
 
@@ -10,6 +11,7 @@ const router = express.Router({ mergeParams: true });
 
 router.route('/is-authenticated').get(isAuthenticated);
 router.route('/').get(ensureAuthenticated, getAllRecruiters).post(ensureAuthenticated, createRecruiter);
+router.route('/multiple').post(createRecruiters);
 router.route('/:id').get(ensureUser, getRecruiter);
 
 export default router;

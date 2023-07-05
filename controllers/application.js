@@ -2,6 +2,8 @@
 import Application from '../models/Application.js';
 import asyncWrapper from '../middlewares/async.js';
 
+const { log } = console;
+
 const getAllApplications = asyncWrapper(async (req, res) => {
   // eslint-disable-next-line max-len
   // localhost:5000/api/v1/applications/?limit=2&next=590e9abd4abbf1165862d342&jobId=6429ad8b4ce2cfedb3d70dd0&status=shortlisted&minDateOfApplication=2022-02-14T00:00:00.000Z&maxDateOfApplication=2022-09-12T00:00:00.000Z&keyword=backend&sort=-DateOfApplication
@@ -71,6 +73,19 @@ const createApplication = asyncWrapper(async (req, res) => {
   const application = await Application.create({ applicantId: req.user.id, ...req.body });
 
   res.status(201).json({ application });
+});
+
+export const createApplications = asyncWrapper(async (req, res) => {
+  for (let i = 0; i < req.body.length; i += 1) {
+    await Application.create(req.body[i])
+      .then((response) => {
+        log(response);
+      })
+      .catch((error) => {
+        log(error);
+      });
+  }
+  res.status(200).send({ done: true });
 });
 
 const getApplication = asyncWrapper(async (req, res) => {
