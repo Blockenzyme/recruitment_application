@@ -18,6 +18,7 @@ import UserTypeComponent from "../usertype/UserTypeModal";
 import styles from "./Navbar.module.css";
 import logo from "./Blockenzyme.svg";
 
+
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -96,7 +97,7 @@ const NavbarComponent = () => {
       </Navbar>
 
       <Modal isOpen={loginModalOpen} toggle={toggleLoginModal} centered>
-        <ModalHeader toggle={toggleLoginModal}>Login</ModalHeader>
+        <ModalHeader toggle={toggleLoginModal}>Create Account</ModalHeader>
         <ModalBody>
           <LoginForm />
         </ModalBody>
