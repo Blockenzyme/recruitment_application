@@ -2,8 +2,12 @@ import React from "react";
 import { Row, Col, Container, Button } from "reactstrap";
 import "./JobDescription.styles.css";
 import jobdesc1 from '../../../assets/jobdesc1.png';
+import dummyJobs from "./dummy";
+import styles from "../FindJobs/FindJobs.module.css";
+
 
 const JobDescription = () => {
+  
   return (
     <React.Fragment>
       <div>
@@ -101,9 +105,33 @@ const JobDescription = () => {
           </Row>
         </Container>
       </div>
-      <div>
-        
-      </div>
+      
+       <div className={styles.jobListing}>
+            {dummyJobs.map((job) => {
+              return (
+                <div className={styles.job}>
+                  <img
+                    className={styles.jobLogo}
+                    src={job.companylogo}
+                    alt="logo"
+                  />
+                  <span>
+                    <h4>{job.title}</h4>
+                    <h6>{job.company}</h6>
+                  </span>
+                  <span className={styles.jobtag}>
+                    <span>{job.tags[0]}</span>
+                    <span>{job.tags[1]}</span>
+                    <span>{job.tags[2]}</span>
+                  </span>
+                  <h4>{job.location}</h4>
+                  <h4>{job.duration}</h4>
+                  <img src={save} alt="save icon" />
+                </div>
+              );
+            })}
+          </div>
+      
     </React.Fragment>
   );
 };
