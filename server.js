@@ -11,8 +11,10 @@ import cors from 'cors';
 import connectDB from './db/connect.js';
 
 import UserAuthRoutes from './routes/userAuthRoutes.js';
+import userSessionRoute from './routes/userSessionRoute.js';
 import RecruiterRoutes from './routes/recruiterRoutes.js';
 import passportConfig from './config/passport.js';
+import passportConfig2 from './config/passportSession.js';
 
 import jobRoutes from './routes/jobRoutes.js';
 import jobApplicantRoutes from './routes/jobApplicantRoutes.js';
@@ -84,6 +86,7 @@ const start = async () => {
 };
 
 passportConfig(passport);
+passportConfig2(passport);
 
 // jobs routes
 app.use('/api/v1/jobs', jobRoutes);
@@ -93,6 +96,9 @@ app.use('/api/v1/jobapplicant', jobApplicantRoutes);
 
 // authentication routes
 app.use('/api/v1/user', UserAuthRoutes);
+
+// userSession authentication
+app.use('/api/v1/userSession', userSessionRoute);
 
 // recruiter routes
 app.use('/api/v1/recruiter', RecruiterRoutes);
