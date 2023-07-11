@@ -42,8 +42,8 @@
     font-size: 2.25rem;
 }
 .companyName{
-    text-transform: uppercase;
-    color: rgb(85, 64, 199);
+    height: 1.75rem;
+    padding: 2px;
 }
 .howwework{
     margin: 2rem auto;

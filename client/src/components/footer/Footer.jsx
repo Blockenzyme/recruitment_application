@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import styles from './Footer.module.css';
 import logo from "./Logo.jpg";
+import Brand from "../navbar/Blockenzyme.svg"
 import DropdownComp from './Dropdown';
 import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText} from 'reactstrap';
 import { FaGoogle, FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
@@ -14,7 +15,7 @@ function Footer(){
         <section className={styles.footerbody}>
           <div className={styles.logosection}>
             <img src={logo} alt="company logo" />
-            <h6 className={styles.companyName}>BLOCKENZYME</h6>
+            <img src={Brand} alt="brand" className={styles.companyName} />
           </div>
           <div className={styles.linkSection}>
             <ListGroup horizontal className={styles.listgroup}>

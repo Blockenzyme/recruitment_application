@@ -6,6 +6,7 @@ import howwework3 from "./howwework3.jpg";
 import howwework4 from "./howwework4.jpg";
 import styles from "./Landing.module.css";
 import {Button} from "reactstrap";
+import Brand from "../../components/navbar/Blockenzyme.svg";
 
 function Landing(){
   return (
@@ -28,7 +29,7 @@ function Landing(){
       </section>
       <section className={styles.howwework}>
         <h5>
-          How <span className={styles.companyName}>Blockenzyme</span> works for
+          How <img src={Brand} alt="brand-name" className={styles.companyName} /> works for
           you?
         </h5>
         <div className={styles.howweworkflex}>

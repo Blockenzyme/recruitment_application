@@ -9,13 +9,12 @@
 }
 .logosection{
     max-width: 24rem;
+    display: flex;
+    flex-direction: column;
 }
 .companyName {
-    color: #5640c7;
-    font-size: 2rem;
-    line-height: 2.25rem;
-    text-align: center;
-    padding-top: 0.8rem;
+    margin: auto;
+    height: 1.75rem;
 }
 .list{
     border: none;
