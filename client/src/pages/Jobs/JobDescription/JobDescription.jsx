@@ -4,6 +4,9 @@ import "./JobDescription.styles.css";
 import jobdesc1 from "../../../assets/jobdesc1.png";
 import dummyJobs from "./dummyJob";
 import save from "../FindJobs/svgs/save.svg";
+import loc from "../FindJobs/svgs/location.svg";
+import srch from "../FindJobs/svgs/search.svg";
+
 import styles from "../FindJobs/FindJobs.module.css";
 
 const JobDescription = () => {
@@ -11,26 +14,24 @@ const JobDescription = () => {
     <React.Fragment>
       <div>
         <Container>
+         
+          <div className={styles.jobsPage}>
+      <section className={styles.topSection}>
+        <h2>Discover the best remote jobs here</h2>
+        <div className={styles.searchSection}>
           <div>
-            <Row>
-              <Col md={12}>
-                <h3 id="title">Discover the best remote jobs</h3>
-              </Col>
-            </Row>
+            <img src={srch} alt="search icon" />
+            <input placeholder="Job title or Keyword" />
           </div>
-          <Row id="box1">
-            <Col md={3}>
-              <img />
-              <p className="text">Job title or Keyword</p>
-            </Col>
-            <Col md={7}>
-              <img />
-              <p className="text">Add Country or City</p>
-            </Col>
-            <Col>
-              <Button className="button1">Search</Button>
-            </Col>
-          </Row>
+          <span className={styles.vline}></span>
+          <div>
+            <img src={loc} alt="location icon" />
+            <input placeholder="Add Country or City" />
+          </div>
+          <Button className={styles.searchbtn}>Search</Button>
+        </div>
+      </section>
+      </div>
           <div className="container2">
             <Row className="box2">
               <Col md={3}>
