@@ -1,13 +1,12 @@
 import React from "react";
 import { Row, Col, Container, Button } from "reactstrap";
 import "./JobDescription.styles.css";
-import jobdesc1 from '../../../assets/jobdesc1.png';
-import dummyJobs from "./dummy";
+import jobdesc1 from "../../../assets/jobdesc1.png";
+import dummyJobs from "./dummyJob";
+import save from "../FindJobs/svgs/save.svg";
 import styles from "../FindJobs/FindJobs.module.css";
 
-
 const JobDescription = () => {
-  
   return (
     <React.Fragment>
       <div>
@@ -28,7 +27,7 @@ const JobDescription = () => {
               <img />
               <p className="text">Add Country or City</p>
             </Col>
-            <Col >
+            <Col>
               <Button className="button1">Search</Button>
             </Col>
           </Row>
@@ -38,11 +37,11 @@ const JobDescription = () => {
                 <img src={jobdesc1} alt="jobdesc" id="jobdesc1" />
               </Col>
               <Col md={6} className="text2">
-                <h3 >Vacant Job</h3>
-                <h4 >Company Name</h4>
+                <h3>Vacant Job</h3>
+                <h4>Company Name</h4>
               </Col>
               <Col md={3}>
-                <Button className="button2" >Apply Now</Button>
+                <Button className="button2">Apply Now</Button>
               </Col>
             </Row>
             <Row className="text3">
@@ -68,7 +67,9 @@ const JobDescription = () => {
                 </p>
               </Col>
               <Col md={6} className="box3">
-                <h5 id="title2" className="c1">Job Details</h5>
+                <h5 id="title2" className="c1">
+                  Job Details
+                </h5>
                 <p className="c2">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
@@ -105,33 +106,33 @@ const JobDescription = () => {
           </Row>
         </Container>
       </div>
-      
-       <div className={styles.jobListing}>
-            {dummyJobs.map((job) => {
-              return (
-                <div className={styles.job}>
-                  <img
-                    className={styles.jobLogo}
-                    src={job.companylogo}
-                    alt="logo"
-                  />
-                  <span>
-                    <h4>{job.title}</h4>
-                    <h6>{job.company}</h6>
-                  </span>
-                  <span className={styles.jobtag}>
-                    <span>{job.tags[0]}</span>
-                    <span>{job.tags[1]}</span>
-                    <span>{job.tags[2]}</span>
-                  </span>
-                  <h4>{job.location}</h4>
-                  <h4>{job.duration}</h4>
-                  <img src={save} alt="save icon" />
-                </div>
-              );
-            })}
-          </div>
-      
+      <Container>
+        <div className={styles.jobListing}>
+          {dummyJobs.map((job) => {
+            return (
+              <div className={styles.job}>
+                <img
+                  className={styles.jobLogo}
+                  src={job.companylogo}
+                  alt="logo"
+                />
+                <span>
+                  <h4>{job.title}</h4>
+                  <h6>{job.company}</h6>
+                </span>
+                <span className={styles.jobtag}>
+                  <span>{job.tags[0]}</span>
+                  <span>{job.tags[1]}</span>
+                  <span>{job.tags[2]}</span>
+                </span>
+                <h4>{job.location}</h4>
+                <h4>{job.duration}</h4>
+                <img src={save} alt="save icon" />
+              </div>
+            );
+          })}
+        </div>
+      </Container>
     </React.Fragment>
   );
 };
