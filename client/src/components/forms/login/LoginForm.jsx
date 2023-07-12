@@ -68,9 +68,9 @@ const LoginForm = () => {
 
         <FormGroup >
           <Input
-            id="email"
-            name="email"
-            placeholder="Email"
+            id="username"
+            name="username"
+            placeholder="Username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}

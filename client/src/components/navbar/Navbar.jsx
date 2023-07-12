@@ -97,7 +97,7 @@ const NavbarComponent = () => {
       </Navbar>
 
       <Modal isOpen={loginModalOpen} toggle={toggleLoginModal} centered>
-        <ModalHeader toggle={toggleLoginModal}>Create Account</ModalHeader>
+        <ModalHeader toggle={toggleLoginModal}>Login</ModalHeader>
         <ModalBody>
           <LoginForm />
         </ModalBody>
