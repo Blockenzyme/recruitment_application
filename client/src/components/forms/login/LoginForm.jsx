@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Form,
   FormGroup,
-
   Input,
   Button,
   Row,
@@ -10,7 +9,7 @@ import {
   Container,
 } from "reactstrap";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import fbook from "../../../assets/facebook.png";
 import google from "../../../assets/google.png";
 import linkedin from "../../../assets/linkedin.png";
@@ -48,7 +47,7 @@ const LoginForm = () => {
         <Container>
           <Row>
             <Col md={12}>
-              <img src={logo} className="col-12" alt="" id="logo" />
+              <img src={logo} className="logo" alt="" />
             </Col>
           </Row>
           <Row>
@@ -62,11 +61,9 @@ const LoginForm = () => {
               <img src={linkedin} alt="" />
             </Col>
           </Row>
-
         </Container>
 
-
-        <FormGroup >
+        <FormGroup>
           <Input
             id="username"
             name="username"
@@ -77,7 +74,7 @@ const LoginForm = () => {
             className="label1"
           />
         </FormGroup>
-        <FormGroup >
+        <FormGroup>
           <Input
             id="password"
             name="password"
@@ -88,9 +85,13 @@ const LoginForm = () => {
             className="label2"
           />
         </FormGroup>
-        <Link to="" className="link1">Forgot Password?</Link>
+        <Link to="" className="link1">
+          Forgot Password?
+        </Link>
         <br />
-        <Button className="login" onClick={handleLogin}>Log In</Button>
+        <Button className="login" onClick={handleLogin}>
+          Log In
+        </Button>
       </Form>
     </div>
   );

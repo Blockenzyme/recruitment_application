@@ -1,4 +1,4 @@
-.logo {
+#logo {
   width: 8rem;
   margin-left: 7rem;
 }
@@ -50,4 +50,10 @@
 .form {
   margin: 3rem;
   margin-top: 1rem;
+}
+
+.check {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(118, 108, 108, 1);
 }

@@ -18,7 +18,6 @@ import UserTypeComponent from "../usertype/UserTypeModal";
 import styles from "./Navbar.module.css";
 import logo from "./Blockenzyme.svg";
 
-
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -121,6 +120,3 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
-
-
-
