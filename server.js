@@ -15,6 +15,7 @@ import RecruiterRoutes from './routes/recruiterRoutes.js';
 import passportConfig from './config/passport.js';
 
 import jobRoutes from './routes/jobRoutes.js';
+import sessionRoutes from './routes/sessionRoutes.js';
 import jobApplicantRoutes from './routes/jobApplicantRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
 
@@ -87,6 +88,7 @@ passportConfig(passport);
 
 // jobs routes
 app.use('/api/v1/jobs', jobRoutes);
+app.use('/api/v1/session', sessionRoutes);
 
 // jobApplicant routes
 app.use('/api/v1/jobapplicant', jobApplicantRoutes);
