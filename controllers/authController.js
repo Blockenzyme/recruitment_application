@@ -106,4 +106,26 @@ const ensureAuthenticated = (req, res, next) => {
   return res.sendStatus(401);
 };
 
-export { signin, register, ensureUser, ensureAuthenticated, ensureRecruiter };
+const googleoauth = passport.authenticate('google', { scope: ['openid', 'email', 'profile'] });
+
+const facebookoauth = passport.authenticate('facebook', { scope: ['email'] });
+
+const linkedinoauth = passport.authenticate('linkedin');
+
+const googleoauthcallback = passport.authenticate('google', { failureRedirect: '/login' });
+
+const facebookoauthcallback = passport.authenticate('facebook', { failureRedirect: '/login' });
+
+const linkedinoauthcallback = passport.authenticate('linkedin', { failureRedirect: '/login' });
+
+export { signin,
+  register,
+  ensureUser,
+  ensureAuthenticated,
+  ensureRecruiter,
+  googleoauth,
+  facebookoauth,
+  googleoauthcallback,
+  facebookoauthcallback,
+  linkedinoauth,
+  linkedinoauthcallback };
