@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/User.js';
-import { signin, register, multipleRegister } from '../controllers/authController.js';
+import { signin, register, multipleRegister, googleoauth, facebookoauth, googleoauthcallback, facebookoauthcallback, linkedinoauth, linkedinoauthcallback } from '../controllers/authController.js';
 
 const router = express.Router({ mergeParams: true });
 
@@ -11,7 +11,34 @@ router.route('/register/all')
   .post(multipleRegister);
 
 router.route('/login')
+  .get((req, res) => {
+    res.send('Login Page');
+  })
   .post(signin);
+
+router.route('/auth/google')
+  .get(googleoauth);
+
+router.route('/auth/facebook')
+  .get(facebookoauth);
+
+router.route('/auth/linkedin')
+  .get(linkedinoauth);
+
+router.route('/auth/google/callback')
+  .get(googleoauthcallback, (req, res) => {
+    res.send({ done: true });
+  });
+
+router.route('/auth/facebook/callback')
+  .get(facebookoauthcallback, (req, res) => {
+    res.send({ done: true });
+  });
+
+router.route('/auth/linkedin/callback')
+  .get(linkedinoauthcallback, (req, res) => {
+    res.send({ done: true });
+  });
 
 router.route('/logout').get((req, res, next) => {
   req.logout((err) => {
