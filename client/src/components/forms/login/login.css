@@ -1,0 +1,53 @@
+.logo {
+  width: 8rem;
+  margin-left: 7rem;
+}
+
+.social {
+  width: 1rem;
+  margin-left: 3.8rem;
+  margin-top: 1rem;
+}
+
+.label1 {
+  margin-top: 2rem;
+  background: rgba(217, 217, 217, 0.51);
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.label2 {
+  margin-top: 1rem;
+  background: rgba(217, 217, 217, 0.51);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.login {
+  background: rgba(217, 217, 217, 1);
+  color: rgba(113, 113, 113, 1);
+
+  font-size: 19px;
+  font-weight: 400;
+  width: 10rem;
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-left: 7rem;
+}
+
+.link1 {
+  color: rgba(92, 92, 92, 1);
+  margin-left: 14rem;
+
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.form {
+  margin: 3rem;
+  margin-top: 1rem;
+}

@@ -1,3 +1,4 @@
-import Logo from "./Logo";
+import NavbarComponent from "./navbar/Navbar";
+import Footer from "./footer/Footer";
 
-export {Logo};
+export {  NavbarComponent, Footer };
