@@ -4,7 +4,7 @@ import asyncWrapper from '../middlewares/async.js';
 const { log } = console;
 
 const createSession = asyncWrapper(async (req, res) => {
-  const session = await Session.create({ recruiterId: req.user.id, ...req.body });
+  const session = await Session.create({ userId: req.user.id, ...req.body });
 
   res.status(201).json({ session });
 });
