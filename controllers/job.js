@@ -15,12 +15,12 @@ const getAllJobs = asyncWrapper(async (req, res) => {
 
   if (minExperience) {
     if (maxExperience) {
-      queryObject.Experience = { $gte: minExperience, $lte: maxExperience };
+      queryObject.experience = { $gte: minExperience, $lte: maxExperience };
     } else {
-      queryObject.Experience = { $gte: minExperience };
+      queryObject.experience = { $gte: minExperience };
     }
   } else if (maxExperience) {
-    queryObject.Experience = { $lte: maxExperience };
+    queryObject.experience = { $lte: maxExperience };
   }
 
   if (minSalary) {
