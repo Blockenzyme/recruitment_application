@@ -36,6 +36,10 @@ const sessionSchema = new mongoose.Schema({
     type: String, // Assuming the file will be stored as a string representing the file path or URL
     required: true,
   },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 // Create a model using the schema
